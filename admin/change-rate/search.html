@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+   <title>NUBEBE</title>
+   <!-- jQuery CDN -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+   <link rel="icon" href="/_image/common/favicon.ico" type="image/x-icon" sizes="32x32" />
+   <link rel="stylesheet" href="/../../_css/reset.css" />
+   <link rel="stylesheet" href="/../../_css/common.css" />
+   <link rel="stylesheet" href="/../../_css/admin.css" />
+   <script src="../../_js/common.js" defer></script>
+   <script src="../../_js/admin.js" defer></script>
+</head>
+
+<body>
+   <div class="wrap">
+      <!--헤더시작-->
+      <header class="header" id="header"></header>
+      <!-- 헤더 끝 -->
+
+      <!--메인 시작-->
+      <main class="change-rate page-main">
+         <div class="page-container">
+            <article class="page-content ptb192">
+               <h3 class="cr-title">증감률 도출/비교</h3>
+               <div class="change-rate-inner">
+                  <form action="">
+                     <div class="change-rate-item">
+                        <div class="change-rate-title pt30">
+                           <h4>지점</h4>
+                        </div>
+                        <div class="change-rate-content d-flex-ss">
+                           <div class="cr-item">
+                              <h4>기준 지점</h4>
+                              <div class="select-box">
+                                 <button type="button" class="option-label">
+                                    지점 선택
+                                 </button>
+                                 <ul class="option-list">
+                                    <li class="option-item" value="list">
+                                       분당점
+                                    </li>
+                                    <li class="option-item" value="list">
+                                       잠실점
+                                    </li>
+                                    <li class="option-item" value="list">
+                                       강남점
+                                    </li>
+                                    <li class="option-item" value="list">
+                                       홍대점
+                                    </li>
+                                    <li class="option-item" value="list">
+                                       부천점
+                                    </li>
+                                    <li class="option-item" value="list">
+                                       부산점
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                           <div class="cr-item">
+                              <h4>비교 지점</h4>
+                              <div class="select-box mb10">
+                                 <button type="button" class="option-label">
+                                    지점 선택
+                                 </button>
+                                 <ul class="option-list">
+                                    <li class="option-item" value="list">
+                                       분당점
+                                    </li>
+                                    <li class="option-item" value="list">
+                                       잠실점
+                                    </li>
+                                    <li class="option-item" value="list">
+                                       강남점
+                                    </li>
+                                    <li class="option-item" value="list">
+                                       홍대점
+                                    </li>
+                                    <li class="option-item" value="list">
+                                       부천점
+                                    </li>
+                                    <li class="option-item" value="list">
+                                       부산점
+                                    </li>
+                                 </ul>
+                              </div>
+                              <div class="select-box">
+                                 <button type="button" class="option-label">
+                                    지점 선택
+                                 </button>
+                                 <ul class="option-list">
+                                    <li class="option-item" value="list">
+                                       분당점
+                                    </li>
+                                    <li class="option-item" value="list">
+                                       잠실점
+                                    </li>
+                                    <li class="option-item" value="list">
+                                       강남점
+                                    </li>
+                                    <li class="option-item" value="list">
+                                       홍대점
+                                    </li>
+                                    <li class="option-item" value="list">
+                                       부천점
+                                    </li>
+                                    <li class="option-item" value="list">
+                                       부산점
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="change-rate-item">
+                        <div class="change-rate-title pt10">
+                           <h4>그래프</h4>
+                        </div>
+                        <div class="change-rate-content graph d-flex-sc">
+                           <button type="button" class="btn btn-branch" onclick="openModal('modal-graph-select')">
+                              선택하기
+                           </button>
+                           <div class="category d-flex-ss pt10">
+                              <div class="main-category">
+                                 <b>환자-초진</b>
+                              </div>
+                              <ul class="sub-category">
+                                 <li>총 초진수<button class="btn-delete"></button></li>
+                                 <li>내원<button class="btn-delete"></button></li>
+                                 <li>비대면<button class="btn-delete"></button></li>
+                                 <li>기타<button class="btn-delete"></button></li>
+                                 <li>초진예약<button class="btn-delete"></button></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="change-rate-item">
+                        <div class="change-rate-title pt30">
+                           <h4>기간</h4>
+                        </div>
+                        <div class="change-rate-content d-flex-ss">
+                           <div class="cr-item">
+                              <h4>기준 기간</h4>
+                              <div class="period d-flex-cc mb25">
+                                 <div class="select-box change-rate-sb">
+                                    <button type="button" class="option-label">
+                                       연
+                                    </button>
+                                    <ul class="option-list">
+                                       <li class="option-item" value="list">
+                                          2023년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2022년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2021년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2020년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2019년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2018년
+                                       </li>
+                                    </ul>
+                                 </div>
+                                 <span>~</span>
+                                 <div class="select-box change-rate-sb">
+                                    <button type="button" class="option-label">
+                                       연
+                                    </button>
+                                    <ul class="option-list">
+                                       <li class="option-item" value="list">
+                                          2023년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2022년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2021년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2020년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2019년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2018년
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              <div class="period d-flex-cc mb25">
+                                 <div class="select-box change-rate-sb">
+                                    <button type="button" class="option-label">
+                                       월
+                                    </button>
+                                    <ul class="option-list">
+                                       <li class="option-item" value="list">
+                                          1월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          3월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          4월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          5월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          6월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          7월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          8월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          9월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          10월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          11월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          12월
+                                       </li>
+                                    </ul>
+                                 </div>
+                                 <span>~</span>
+                                 <div class="select-box change-rate-sb">
+                                    <button type="button" class="option-label">
+                                       월
+                                    </button>
+                                    <ul class="option-list">
+                                       <li class="option-item" value="list">
+                                          1월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          3월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          4월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          5월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          6월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          7월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          8월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          9월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          10월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          11월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          12월
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              <div class="period d-flex-cc mb25">
+                                 <div class="select-box change-rate-sb">
+                                    <button type="button" class="option-label">
+                                       주차
+                                    </button>
+                                    <ul class="option-list">
+                                       <li class="option-item" value="list">
+                                          1주차
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2주차
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          3주차
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          4주차
+                                       </li>
+                                    </ul>
+                                 </div>
+                                 <span>~</span>
+                                 <div class="select-box change-rate-sb">
+                                    <button type="button" class="option-label">
+                                       주차
+                                    </button>
+                                    <ul class="option-list">
+                                       <li class="option-item" value="list">
+                                          1주차
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2주차
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          3주차
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          4주차
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              <div class="period d-flex-cc">
+                                 <div class="select-box change-rate-sb">
+                                    <button type="button" class="option-label">
+                                       일
+                                    </button>
+                                    <ul class="option-list">
+                                       <li class="option-item" value="list">
+                                          1일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          3일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          4일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          5일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          6일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          7일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          8일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          9일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          10일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          11일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          12일
+                                       </li>
+                                    </ul>
+                                 </div>
+                                 <span>~</span>
+                                 <div class="select-box change-rate-sb">
+                                    <button type="button" class="option-label">
+                                       일
+                                    </button>
+                                    <ul class="option-list">
+                                       <li class="option-item" value="list">
+                                          1일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          3일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          4일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          5일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          6일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          7일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          8일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          9일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          10일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          11일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          12일
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="cr-item">
+                              <h4>비교 기간</h4>
+                              <div class="period d-flex-cc mb25">
+                                 <div class="select-box change-rate-sb">
+                                    <button type="button" class="option-label">
+                                       연
+                                    </button>
+                                    <ul class="option-list">
+                                       <li class="option-item" value="list">
+                                          2023년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2022년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2021년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2020년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2019년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2018년
+                                       </li>
+                                    </ul>
+                                 </div>
+                                 <span>~</span>
+                                 <div class="select-box change-rate-sb">
+                                    <button type="button" class="option-label">
+                                       연
+                                    </button>
+                                    <ul class="option-list">
+                                       <li class="option-item" value="list">
+                                          2023년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2022년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2021년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2020년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2019년
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2018년
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              <div class="period d-flex-cc mb25">
+                                 <div class="select-box change-rate-sb">
+                                    <button type="button" class="option-label">
+                                       월
+                                    </button>
+                                    <ul class="option-list">
+                                       <li class="option-item" value="list">
+                                          1월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          3월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          4월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          5월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          6월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          7월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          8월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          9월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          10월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          11월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          12월
+                                       </li>
+                                    </ul>
+                                 </div>
+                                 <span>~</span>
+                                 <div class="select-box change-rate-sb">
+                                    <button type="button" class="option-label">
+                                       월
+                                    </button>
+                                    <ul class="option-list">
+                                       <li class="option-item" value="list">
+                                          1월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          3월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          4월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          5월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          6월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          7월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          8월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          9월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          10월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          11월
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          12월
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              <div class="period d-flex-cc mb25">
+                                 <div class="select-box change-rate-sb">
+                                    <button type="button" class="option-label">
+                                       주차
+                                    </button>
+                                    <ul class="option-list">
+                                       <li class="option-item" value="list">
+                                          1주차
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2주차
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          3주차
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          4주차
+                                       </li>
+                                    </ul>
+                                 </div>
+                                 <span>~</span>
+                                 <div class="select-box change-rate-sb">
+                                    <button type="button" class="option-label">
+                                       주차
+                                    </button>
+                                    <ul class="option-list">
+                                       <li class="option-item" value="list">
+                                          1주차
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2주차
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          3주차
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          4주차
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              <div class="period d-flex-cc">
+                                 <div class="select-box change-rate-sb">
+                                    <button type="button" class="option-label">
+                                       일
+                                    </button>
+                                    <ul class="option-list">
+                                       <li class="option-item" value="list">
+                                          1일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          3일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          4일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          5일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          6일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          7일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          8일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          9일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          10일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          11일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          12일
+                                       </li>
+                                    </ul>
+                                 </div>
+                                 <span>~</span>
+                                 <div class="select-box change-rate-sb">
+                                    <button type="button" class="option-label">
+                                       일
+                                    </button>
+                                    <ul class="option-list">
+                                       <li class="option-item" value="list">
+                                          1일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          2일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          3일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          4일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          5일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          6일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          7일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          8일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          9일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          10일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          11일
+                                       </li>
+                                       <li class="option-item" value="list">
+                                          12일
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="btn-center-group">
+                        <button type="button" id="btn-search" class="btn btn-normal-pink">
+                           검색
+                        </button>
+                     </div>
+                  </form>
+
+               </div>
+            </article>
+         </div>
+      </main>
+      <!--메인 끝 -->
+   </div>
+   <!-- 모달 그래프 선택 시작 -->
+   <div id="modal-graph-select" class="modal modal-graph-select">
+      <div class="close-btn-area">
+         <button class="btn-close" type="button" onclick="closeModal('modal-graph-select')"></button>
+      </div>
+      <div class="modal-inner modify">
+         <h3 class="modal-title">그래프 선택</h3>
+         <form name="graph-select">
+            <div class="modal-content">
+               <div class="select-box">
+                  <button type="button" class="option-label">
+                     대분류
+                  </button>
+                  <ul class="option-list">
+                     <li class="option-item" value="list">
+                        대분류
+                     </li>
+                     <li class="option-item" value="list">
+                        매출
+                     </li>
+                     <li class="option-item" value="list">
+                        환자
+                     </li>
+                     <li class="option-item" value="list">
+                        의료진
+                     </li>
+                     <li class="option-item" value="list">
+                        일일결산보고서
+                     </li>
+                     <li class="option-item" value="list">
+                        정보수정
+                     </li>
+                  </ul>
+               </div>
+               <div class="check-list sub-category mt20">
+                  <div class="check-group">
+                     <div class="check-box">
+                        <input type="checkbox" id="member" />
+                        <label for="member">전체 선택</label>
+                     </div>
+                     <div class="check-box">
+                        <input type="checkbox" id="admin" />
+                        <label for="admin">총초진 수</label>
+                     </div>
+                     <div class="check-box">
+                        <input type="checkbox" id="branch" />
+                        <label for="branch">내원</label>
+                     </div>
+                     <div class="check-box">
+                        <input type="checkbox" id="sales" />
+                        <label for="sales">비대면</label>
+                     </div>
+                     <div class="check-box">
+                        <input type="checkbox" id="patient" />
+                        <label for="patient">기타</label>
+                     </div>
+                     <div class="check-box">
+                        <input type="checkbox" id="staff" />
+                        <label for="staff">초진 예약</label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="modal-btn-group">
+               <button class="btn btn-check" type="submit">저장</button>
+            </div>
+         </form>
+      </div>
+   </div>
+   <!-- 모달 그래프 선택 끝 -->
+</body>
+
+</html>

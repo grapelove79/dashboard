@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<title>NUBEBE</title>
+	<!-- jQuery CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<link rel="icon" href="/_image/common/favicon.ico" type="image/x-icon" sizes="32x32" />
+	<link rel="stylesheet" href="/../../_css/reset.css" />
+	<link rel="stylesheet" href="/../../_css/common.css" />
+	<link rel="stylesheet" href="/../../_css/admin.css" />
+	<script src="../../_js/common.js" defer></script>
+	<script src="../../_js/admin.js" defer></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<!--헤더시작-->
+		<header class="header" id="header"></header>
+		<!-- 헤더 끝 -->
+
+		<!--메인 시작-->
+		<main class="branch page-main">
+			<div class="page-container">
+				<article class="branch-add modify page-content ptb192">
+					<h3 class="modify-title">지점 추가/수정</h3>
+					<div class="modify-content">
+						<div class="branch-content">
+							<table>
+								<colgroup>
+									<col style="width: 30%" />
+									<col style="width: auto" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th>등록시간</th>
+										<th>개원일</th>
+										<th>지점</th>
+										<th>편집</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>2001.02.03 15:10:12</td>
+										<td>2001.02.03</td>
+										<td>분당점</td>
+										<td>
+											<button class="btn-modify" type="button" onclick="openModal('modal-branch')">
+												정보수정
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td>2001.02.03 15:10:12</td>
+										<td>2001.02.03</td>
+										<td>잠실점</td>
+										<td>
+											<button class="btn-modify" type="button" onclick="openModal('modal-branch')">
+												정보수정
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td>2001.02.03 15:10:12</td>
+										<td>2001.02.03</td>
+										<td>강남점</td>
+										<td>
+											<button class="btn-modify" type="button" onclick="openModal('modal-branch')">
+												정보수정
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td>2001.02.03 15:10:12</td>
+										<td>2001.02.03</td>
+										<td>홍대점</td>
+										<td>
+											<button class="btn-modify" type="button" onclick="openModal('modal-branch')">
+												정보수정
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td>2001.02.03 15:10:12</td>
+										<td>2001.02.03</td>
+										<td>부천점</td>
+										<td>
+											<button class="btn-modify" type="button" onclick="openModal('modal-branch')">
+												정보수정
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td>2001.02.03 15:10:12</td>
+										<td>2001.02.03</td>
+										<td>부산점</td>
+										<td>
+											<button class="btn-modify" type="button">
+												정보수정
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="btn-center-group">
+								<button type="button" id="btn-add-branch" class="btn btn-branch"
+									onclick="openModal('modal-branch')">
+									지점 추가 +
+								</button>
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+		</main>
+		<!--메인 끝 -->
+	</div>
+
+	<!-- 지점 추가 시작 -->
+	<div id="modal-branch" class="modal">
+		<div class="modal-inner">
+			<h3 class="modal-title">지점 추가/수정</h3>
+			<form class="add-modify-branch" name="add-modify-branch" action="" method="post" onsubmit="">
+				<div class="modal-content">
+					<ul>
+						<li>
+							<span>지점명<b>(점까지)</b></span>
+							<div class="input-box">
+								<input type="text" name="branchNm" id="branchNm" />
+							</div>
+						</li>
+						<li>
+							<span>개원일</span>
+							<div class="date-box">
+								<input type="date" required />
+							</div>
+						</li>
+						<li>
+							<span>약어</span>
+							<div class="input-box">
+								<input type="text" name="short" id="short" />
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="modal-btn-group">
+					<button class="btn btn-close" type="button" onclick="closeModal('modal-branch')">닫기</button>
+					<button class="btn btn-check" type="submit">저장</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- 지점 추가 끝 -->
+</body>
+
+</html>

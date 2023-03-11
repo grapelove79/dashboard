@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<title>NUBEBE</title>
+	<!-- jQuery CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<link rel="icon" href="/_image/common/favicon.ico" type="image/x-icon" sizes="32x32" />
+	<link rel="stylesheet" href="../../_css/reset.css" />
+	<link rel="stylesheet" href="../../_css/common.css" />
+	<link rel="stylesheet" href="../../_css/style.css" />
+	<script src="../../_js/common.js" defer></script>
+	<script src="../../_js/dashbord.js" defer></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<!-- 헤더 시작 -->
+		<header class="header" id="header"></header>
+		<!-- 헤더 끝 -->
+
+		<!--메인 시작-->
+		<main class="setting page-main">
+			<div class="page-container">
+				<article class="modify-info modify page-content ptb145">
+					<form class="modify-wrap" name="modifyForm" action="" method="post" onsubmit="">
+						<h3 class="modify-title">정보수정</h3>
+						<div class="modify-content">
+							<ul class="form-list">
+								<!-- 맞는 형식 : li에 correct 클래스 추가 -->
+								<!-- 틀린 형식 : li에 wrong 클래스 추가 -->
+								<li>
+									<div class="input-box">
+										<label for="pwd">비밀번호</label>
+										<div>
+											<input type="password" name="pwd" id="pwd" onkeyup="checkPassword();"
+												onblur="checkPassword();" />
+											<span class="guide-tooltip correct">사용 가능합니다.</span>
+											<span class="guide-tooltip wrong">사용 불가능합니다.</span>
+										</div>
+									</div>
+									<p class="guide-text">- 8자 이상 16자리 이하</p>
+									<p class="guide-text">
+										- 영문/숫자/특수문자 중 3가지 이상 조합
+									</p>
+								</li>
+								<li>
+									<div class="input-box">
+										<label for="pwd-check">비밀번호 확인</label>
+										<div>
+											<input type="password" name="pwd-check" id="pwd-check" onkeyup="checkPasswordCheck();"
+												onblur="checkPasswordCheck();" />
+											<span class="guide-tooltip correct">비밀번호가 일치합니다.</span>
+											<span class="guide-tooltip wrong">비밀번호가 일치하지 않습니다.</span>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<button type="button" class="btn btn-save">저장</button>
+						</div>
+					</form>
+				</article>
+			</div>
+		</main>
+	</div>
+	<script>
+		function checkPassword() {
+			let pwd = $("#pwd").val();
+			let pwCheck = $("#pwd-check").val();
+			let reg =
+				/^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^*()\-_=+\\\|\[\]{};:\'",.<>\/?]).{8,16}$/;
+
+			if (false === reg.test(pwd)) {
+				$(".form-list li:nth-child(1)").removeClass("correct");
+				$(".form-list li:nth-child(1)").addClass("wrong");
+				return false;
+			} else {
+				$(".form-list li:nth-child(1)").removeClass("wrong");
+				$(".form-list li:nth-child(1)").addClass("correct");
+				return false;
+			}
+		}
+
+		function checkPasswordCheck() {
+			let pwd = $("#pwd").val();
+			let pwCheck = $("#pwd-check").val();
+			if (pwd !== pwCheck) {
+				$(".form-list li:nth-child(2)").removeClass("correct");
+				$(".form-list li:nth-child(2)").addClass("wrong");
+				return false;
+			} else {
+				$(".form-list li:nth-child(2)").removeClass("wrong");
+				$(".form-list li:nth-child(2)").addClass("correct");
+				return false;
+			}
+		}
+	</script>
+</body>
+
+</html>

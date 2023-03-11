@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<title>NUBEBE</title>
+	<!-- jQuery CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<!-- chart.js CDN -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+	<!-- daterangepicker -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+	<link rel="icon" href="/_image/common/favicon.ico" type="image/x-icon" sizes="32x32" />
+	<link rel="stylesheet" href="../../_css/reset.css" />
+	<link rel="stylesheet" href="../../_css/common.css" />
+	<link rel="stylesheet" href="../../_css/style.css" />
+	<script src="../../_js/common.js" defer></script>
+	<script src="../../_js/dashbord.js" defer></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<header class="header" id="header"></header>
+
+		<!--메인 시작-->
+		<main class="daily-report page-main">
+			<div class="page-container">
+				<article class="page-content ptb55">
+					<div class="calendar">
+						<div class="date-pick">
+							<div class="select-box s-calendar w150">
+								<button type="button" class="option-label">
+									2023년
+								</button>
+								<ul class="option-list">
+									<li class="option-item" value="list">2023년</li>
+									<li class="option-item" value="list">2022년</li>
+									<li class="option-item" value="list">2021년</li>
+									<li class="option-item" value="list">2020년</li>
+									<li class="option-item" value="list">2019년</li>
+								</ul>
+							</div>
+							<div class="select-box s-calendar w110">
+								<button type="button" class="option-label">
+									7월
+								</button>
+								<ul class="option-list">
+									<li class="option-item" value="list">1월</li>
+									<li class="option-item" value="list">2월</li>
+									<li class="option-item" value="list">3월</li>
+									<li class="option-item" value="list">4월</li>
+									<li class="option-item" value="list">5월</li>
+									<li class="option-item" value="list">6월</li>
+									<li class="option-item" value="list">7월</li>
+									<li class="option-item" value="list">8월</li>
+									<li class="option-item" value="list">9월</li>
+									<li class="option-item" value="list">10월</li>
+									<li class="option-item" value="list">11월</li>
+									<li class="option-item" value="list">12월</li>
+								</ul>
+							</div>
+						</div>
+						<div class="calendar-inner mt30">
+							<ul class="day-week">
+								<li class="sunday">일</li>
+								<li>월</li>
+								<li>화</li>
+								<li>수</li>
+								<li>목</li>
+								<li>금</li>
+								<li class="saturday">토</li>
+							</ul>
+							<div class="date">
+								<ul>
+									<!-- TODO : 이번달이 아닌 경우 not 클래스 추가 -->
+									<!-- TODO : 일요일인 경우 sunday 클래스 추가 -->
+									<!-- TODO : 토요일인 경우 saturday 클래스 추가 -->
+									<li class="not sunday">
+										<span>27</span>
+									</li>
+									<li class="not"><span>28</span></li>
+									<li class="not"><span>29</span></li>
+									<li class="not"><span>30</span></li>
+									<li>
+										<span>1</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li>
+										<span>2</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li class="saturday">
+										<span>3</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+								</ul>
+								<ul>
+									<li class="sunday"><span>4</span></li>
+									<li>
+										<span>5</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li>
+										<span>6</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li>
+										<span>7</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li>
+										<span>8</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li>
+										<span>9</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li class="saturday">
+										<span>10</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+								</ul>
+								<ul>
+									<li class="sunday"><span>11</span></li>
+									<li>
+										<span>12</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li>
+										<span>13</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li>
+										<span>14</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li>
+										<span>15</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li>
+										<span>16</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li class="saturday">
+										<span>17</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+								</ul>
+								<ul>
+									<li class="sunday"><span>18</span></li>
+									<li>
+										<span>19</span><a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li>
+										<span>20</span><a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li>
+										<span>21</span><a class="btn_input_report active" href="../daily-report/add.html">입력 X</a>
+									</li>
+									<li>
+										<span>22</span><a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li>
+										<span>23</span><a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li class="saturday">
+										<span>24</span><a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+								</ul>
+								<ul>
+									<li class="sunday"><span>25</span></li>
+									<li>
+										<span>26</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li>
+										<span>27</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li>
+										<span>28</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li>
+										<span>29</span>
+										<a class="btn_input_report active" href="../daily-report/add.html">입력 X</a>
+									</li>
+									<li>
+										<span>30</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+									<li class="saturday">
+										<span>31</span>
+										<a class="btn_input_report" href="../daily-report/view.html">입력 O</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+		</main>
+		<!--메인 끝-->
+	</div>
+	<script>
+	</script>
+</body>
+
+</html>

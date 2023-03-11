@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<title>NUBEBE</title>
+	<!-- jQuery CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<!-- chart.js CDN -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+	<!-- daterangepicker -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+	<link rel="icon" href="/_image/common/favicon.ico" type="image/x-icon" sizes="32x32" />
+	<link rel="stylesheet" href="../../_css/reset.css" />
+	<link rel="stylesheet" href="../../_css/common.css" />
+	<link rel="stylesheet" href="../../_css/admin.css" />
+	<script src="../../_js/common.js" defer></script>
+	<script src="../../_js/admin.js" defer></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<!--헤더시작-->
+		<header class="header" id="header"></header>
+		<!-- 헤더 끝 -->
+
+		<!--메인 시작-->
+		<main class="patient page-main">
+			<!-- 사이드바 시작 -->
+			<aside class="aside-nav">
+				<ul class="aside-local-nav">
+					<li>
+						<a href="../patient/first-visit.html">초진</a>
+					</li>
+					<li>
+						<a href="../patient/first-package.html">초진 패키지</a>
+					</li>
+				</ul>
+			</aside>
+			<!-- 사이드바 끝 -->
+			<div class="page-container">
+				<article class="page-content ptb19">
+					<div class="admin-branch-tab-area">
+						<!-- 지점 필터 -->
+						<ul class="admin-branch-tab">
+							<li id="all" class="on">전지점</li>
+							<li>분당점</li>
+							<li>잠실점</li>
+							<li>강남점</li>
+							<li>홍대점</li>
+							<li>부천점</li>
+							<li>부산점</li>
+						</ul>
+						<ul class="tab mt48">
+							<li class="on" data-tab="patient-tab1">
+								<a href="javascript:void(0)">총 초진<br />패키지 수</a>
+							</li>
+							<li data-tab="patient-tab2"><a href="javascript:void(0)">내원</a></li>
+							<li data-tab="patient-tab3">
+								<a href="javascript:void(0)">비대면</a>
+							</li>
+							<li data-tab="patient-tab4">
+								<a href="javascript:void(0)">R초진</a>
+							</li>
+						</ul>
+						<div id="patient-tab1" class="tab-content on">
+							<h3 class="admin-branch-tab-title mt35">
+								전지점 총 패키지 수
+							</h3>
+							<div class="round-flex-items">
+								<div class="round-flex-item">
+									<div class="title">
+										<strong>일간</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<div class="chart">
+										<canvas id="day-chart" width="200" height="200"></canvas>
+									</div>
+									<table class="main-table">
+										<colgroup>
+											<col style="width: 50%" />
+											<col style="width: 50%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>지점</th>
+												<th>매출(원)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<td>전지점</td>
+												<td>210,000,000</td>
+											</tr>
+											<tr>
+												<td>분당점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>잠실점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>강남점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>홍대점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부천점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부산점</td>
+												<td>50,000,000</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="round-flex-item">
+									<div class="title">
+										<strong>주간</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<div class="chart">
+										<canvas id="week-chart" width="200" height="200"></canvas>
+									</div>
+									<table class="main-table">
+										<colgroup>
+											<col style="width: 50%" />
+											<col style="width: 50%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>지점</th>
+												<th>매출(원)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<td>전지점</td>
+												<td>210,000,000</td>
+											</tr>
+											<tr>
+												<td>분당점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>잠실점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>강남점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>홍대점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부천점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부산점</td>
+												<td>50,000,000</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="round-flex-item">
+									<div class="title">
+										<strong>월간</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<div class="chart">
+										<canvas id="month-chart" width="200" height="200"></canvas>
+									</div>
+									<table class="main-table">
+										<colgroup>
+											<col style="width: 50%" />
+											<col style="width: 50%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>지점</th>
+												<th>매출(원)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<td>전지점</td>
+												<td>210,000,000</td>
+											</tr>
+											<tr>
+												<td>분당점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>잠실점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>강남점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>홍대점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부천점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부산점</td>
+												<td>50,000,000</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="round-flex-item">
+									<div class="title">
+										<strong>연간</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<div class="chart">
+										<canvas id="year-chart" width="200" height="200"></canvas>
+									</div>
+									<table class="main-table">
+										<colgroup>
+											<col style="width: 50%" />
+											<col style="width: 50%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>지점</th>
+												<th>매출(원)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<td>전지점</td>
+												<td>210,000,000</td>
+											</tr>
+											<tr>
+												<td>분당점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>잠실점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>강남점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>홍대점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부천점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부산점</td>
+												<td>50,000,000</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="download-chart">
+								<a class="btn-download" href="javascript:void(0)">다운로드</a>
+							</div>
+							<div class="compared-list">
+								<div class="compared-item">
+									<div class="title">
+										<span>일간/전주대비(전주차/요일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>주간/전주대비(전주차/월~일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>월간/전년대비(전년/월)</span>
+										<b class="down">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 45%">45%</span>
+											</div>
+											<div class="this">
+												<span style="height: 23%">23%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>연간/전년대비(전년/년)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="patient-tab2" class="tab-content">
+							<h3 class="admin-branch-tab-title mt35">전지점 내원</h3>
+							<div class="round-flex-items">
+								<div class="round-flex-item">
+									<div class="title">
+										<strong>일간</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<div class="chart">
+										<canvas id="day-chart" width="200" height="200"></canvas>
+									</div>
+									<table class="main-table">
+										<colgroup>
+											<col style="width: 50%" />
+											<col style="width: 50%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>지점</th>
+												<th>매출(원)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<td>전지점</td>
+												<td>210,000,000</td>
+											</tr>
+											<tr>
+												<td>분당점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>잠실점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>강남점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>홍대점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부천점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부산점</td>
+												<td>50,000,000</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="round-flex-item">
+									<div class="title">
+										<strong>주간</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<div class="chart">
+										<canvas id="week-chart" width="200" height="200"></canvas>
+									</div>
+									<table class="main-table">
+										<colgroup>
+											<col style="width: 50%" />
+											<col style="width: 50%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>지점</th>
+												<th>매출(원)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<td>전지점</td>
+												<td>210,000,000</td>
+											</tr>
+											<tr>
+												<td>분당점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>잠실점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>강남점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>홍대점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부천점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부산점</td>
+												<td>50,000,000</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="round-flex-item">
+									<div class="title">
+										<strong>월간</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<div class="chart">
+										<canvas id="month-chart" width="200" height="200"></canvas>
+									</div>
+									<table class="main-table">
+										<colgroup>
+											<col style="width: 50%" />
+											<col style="width: 50%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>지점</th>
+												<th>매출(원)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<td>전지점</td>
+												<td>210,000,000</td>
+											</tr>
+											<tr>
+												<td>분당점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>잠실점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>강남점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>홍대점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부천점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부산점</td>
+												<td>50,000,000</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="round-flex-item">
+									<div class="title">
+										<strong>연간</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<div class="chart">
+										<canvas id="year-chart" width="200" height="200"></canvas>
+									</div>
+									<table class="main-table">
+										<colgroup>
+											<col style="width: 50%" />
+											<col style="width: 50%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>지점</th>
+												<th>매출(원)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<td>전지점</td>
+												<td>210,000,000</td>
+											</tr>
+											<tr>
+												<td>분당점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>잠실점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>강남점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>홍대점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부천점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부산점</td>
+												<td>50,000,000</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="download-chart">
+								<a class="btn-download" href="javascript:void(0)">다운로드</a>
+							</div>
+							<div class="compared-list">
+								<div class="compared-item">
+									<div class="title">
+										<span>일간/전주대비(전주차/요일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>주간/전주대비(전주차/월~일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>월간/전년대비(전년/월)</span>
+										<b class="down">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 45%">45%</span>
+											</div>
+											<div class="this">
+												<span style="height: 23%">23%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>연간/전년대비(전년/년)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="patient-tab3" class="tab-content">
+							<h3 class="admin-branch-tab-title mt35">
+								전지점 비대면
+							</h3>
+							<div class="round-flex-items">
+								<div class="round-flex-item">
+									<div class="title">
+										<strong>일간</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<div class="chart">
+										<canvas id="day-chart" width="200" height="200"></canvas>
+									</div>
+									<table class="main-table">
+										<colgroup>
+											<col style="width: 50%" />
+											<col style="width: 50%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>지점</th>
+												<th>매출(원)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<td>전지점</td>
+												<td>210,000,000</td>
+											</tr>
+											<tr>
+												<td>분당점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>잠실점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>강남점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>홍대점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부천점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부산점</td>
+												<td>50,000,000</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="round-flex-item">
+									<div class="title">
+										<strong>주간</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<div class="chart">
+										<canvas id="week-chart" width="200" height="200"></canvas>
+									</div>
+									<table class="main-table">
+										<colgroup>
+											<col style="width: 50%" />
+											<col style="width: 50%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>지점</th>
+												<th>매출(원)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<td>전지점</td>
+												<td>210,000,000</td>
+											</tr>
+											<tr>
+												<td>분당점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>잠실점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>강남점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>홍대점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부천점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부산점</td>
+												<td>50,000,000</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="round-flex-item">
+									<div class="title">
+										<strong>월간</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<div class="chart">
+										<canvas id="month-chart" width="200" height="200"></canvas>
+									</div>
+									<table class="main-table">
+										<colgroup>
+											<col style="width: 50%" />
+											<col style="width: 50%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>지점</th>
+												<th>매출(원)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<td>전지점</td>
+												<td>210,000,000</td>
+											</tr>
+											<tr>
+												<td>분당점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>잠실점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>강남점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>홍대점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부천점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부산점</td>
+												<td>50,000,000</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="round-flex-item">
+									<div class="title">
+										<strong>연간</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<div class="chart">
+										<canvas id="year-chart" width="200" height="200"></canvas>
+									</div>
+									<table class="main-table">
+										<colgroup>
+											<col style="width: 50%" />
+											<col style="width: 50%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>지점</th>
+												<th>매출(원)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<td>전지점</td>
+												<td>210,000,000</td>
+											</tr>
+											<tr>
+												<td>분당점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>잠실점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>강남점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>홍대점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부천점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부산점</td>
+												<td>50,000,000</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="download-chart">
+								<a class="btn-download" href="javascript:void(0)">다운로드</a>
+							</div>
+							<div class="compared-list">
+								<div class="compared-item">
+									<div class="title">
+										<span>일간/전주대비(전주차/요일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>주간/전주대비(전주차/월~일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>월간/전년대비(전년/월)</span>
+										<b class="down">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 45%">45%</span>
+											</div>
+											<div class="this">
+												<span style="height: 23%">23%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>연간/전년대비(전년/년)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="patient-tab4" class="tab-content">
+							<h3 class="admin-branch-tab-title mt35">
+								전지점 R초진
+							</h3>
+							<div class="round-flex-items">
+								<div class="round-flex-item">
+									<div class="title">
+										<strong>일간</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<div class="chart">
+										<canvas id="day-chart" width="200" height="200"></canvas>
+									</div>
+									<table class="main-table">
+										<colgroup>
+											<col style="width: 50%" />
+											<col style="width: 50%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>지점</th>
+												<th>매출(원)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<td>전지점</td>
+												<td>210,000,000</td>
+											</tr>
+											<tr>
+												<td>분당점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>잠실점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>강남점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>홍대점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부천점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부산점</td>
+												<td>50,000,000</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="round-flex-item">
+									<div class="title">
+										<strong>주간</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<div class="chart">
+										<canvas id="week-chart" width="200" height="200"></canvas>
+									</div>
+									<table class="main-table">
+										<colgroup>
+											<col style="width: 50%" />
+											<col style="width: 50%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>지점</th>
+												<th>매출(원)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<td>전지점</td>
+												<td>210,000,000</td>
+											</tr>
+											<tr>
+												<td>분당점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>잠실점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>강남점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>홍대점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부천점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부산점</td>
+												<td>50,000,000</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="round-flex-item">
+									<div class="title">
+										<strong>월간</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<div class="chart">
+										<canvas id="month-chart" width="200" height="200"></canvas>
+									</div>
+									<table class="main-table">
+										<colgroup>
+											<col style="width: 50%" />
+											<col style="width: 50%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>지점</th>
+												<th>매출(원)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<td>전지점</td>
+												<td>210,000,000</td>
+											</tr>
+											<tr>
+												<td>분당점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>잠실점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>강남점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>홍대점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부천점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부산점</td>
+												<td>50,000,000</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="round-flex-item">
+									<div class="title">
+										<strong>연간</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<div class="chart">
+										<canvas id="year-chart" width="200" height="200"></canvas>
+									</div>
+									<table class="main-table">
+										<colgroup>
+											<col style="width: 50%" />
+											<col style="width: 50%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>지점</th>
+												<th>매출(원)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<td>전지점</td>
+												<td>210,000,000</td>
+											</tr>
+											<tr>
+												<td>분당점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>잠실점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>강남점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>홍대점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부천점</td>
+												<td>50,000,000</td>
+											</tr>
+											<tr>
+												<td>부산점</td>
+												<td>50,000,000</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="download-chart">
+								<a class="btn-download" href="javascript:void(0)">다운로드</a>
+							</div>
+							<div class="compared-list">
+								<div class="compared-item">
+									<div class="title">
+										<span>일간/전주대비(전주차/요일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>주간/전주대비(전주차/월~일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>월간/전년대비(전년/월)</span>
+										<b class="down">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 45%">45%</span>
+											</div>
+											<div class="this">
+												<span style="height: 23%">23%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>연간/전년대비(전년/년)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+		</main>
+	</div>
+
+	<script>
+		// 관리자 홈 - 지점별 필터
+		$("ul.admin-branch-tab li").click(function () {
+			if ($(this).attr("id") == "all") {
+				$("ul.admin-branch-tab li").removeClass("on");
+				$(this).addClass("on");
+			} else {
+				$("ul.admin-branch-tab li#all").removeClass("on");
+				$(this).toggleClass("on");
+			}
+
+			// 선택된 필터 없으면 전지점 선택
+			if ($("ul.admin-branch-tab li.on").length == 0) {
+				$("ul.admin-branch-tab li#all").addClass("on");
+			}
+		});
+
+		// 전지점 환불
+		let day = document.getElementById("day-chart").getContext("2d");
+		let week = document.getElementById("week-chart").getContext("2d");
+		let month = document.getElementById("month-chart").getContext("2d");
+		let year = document.getElementById("year-chart").getContext("2d");
+
+		let dayChart = new Chart(day, {
+			type: "doughnut",
+			data: {
+				labels: [
+					"분당점",
+					"잠실점",
+					"강남점",
+					"홍대점",
+					"부천점",
+					"부산점",
+				],
+				datasets: [
+					{
+						data: [
+							50000000, 30000000, 25000000, 30000000, 55000000,
+							20000000,
+						],
+						backgroundColor: [
+							"#601123",
+							"#8E1B35",
+							"#C73254",
+							"#BE6D7F",
+							"#CA8A93",
+							"#EEB9C5",
+						],
+						borderWidth: 0.5,
+						scaleBeginAtZero: true,
+					},
+				],
+			},
+			options: {
+				legend: {
+					display: false,
+				},
+				plugins: {
+					labels: {
+						fontColor: 'white',
+						fontSize: 14
+					}
+				}
+			},
+		});
+
+		let weekChart = new Chart(week, {
+			type: "doughnut",
+			data: {
+				labels: [
+					"분당점",
+					"잠실점",
+					"강남점",
+					"홍대점",
+					"부천점",
+					"부산점",
+				],
+				datasets: [
+					{
+						data: [
+							50000000, 30000000, 25000000, 30000000, 55000000,
+							20000000,
+						],
+						backgroundColor: [
+							"#601123",
+							"#8E1B35",
+							"#C73254",
+							"#BE6D7F",
+							"#CA8A93",
+							"#EEB9C5",
+						],
+						borderWidth: 0.5,
+						scaleBeginAtZero: true,
+					},
+				],
+			},
+			options: {
+				legend: {
+					display: false,
+				},
+				plugins: {
+					labels: {
+						fontColor: 'white',
+						fontSize: 14
+					}
+				}
+			},
+		});
+
+		let monthChart = new Chart(month, {
+			type: "doughnut",
+			data: {
+				labels: [
+					"분당점",
+					"잠실점",
+					"강남점",
+					"홍대점",
+					"부천점",
+					"부산점",
+				],
+				datasets: [
+					{
+						data: [
+							50000000, 30000000, 25000000, 30000000, 55000000,
+							20000000,
+						],
+						backgroundColor: [
+							"#601123",
+							"#8E1B35",
+							"#C73254",
+							"#BE6D7F",
+							"#CA8A93",
+							"#EEB9C5",
+						],
+						borderWidth: 0.5,
+						scaleBeginAtZero: true,
+					},
+				],
+			},
+			options: {
+				legend: {
+					display: false,
+				},
+				plugins: {
+					labels: {
+						fontColor: 'white',
+						fontSize: 14
+					}
+				}
+			},
+		});
+
+		let yearChart = new Chart(year, {
+			type: "doughnut",
+			data: {
+				labels: [
+					"분당점",
+					"잠실점",
+					"강남점",
+					"홍대점",
+					"부천점",
+					"부산점",
+				],
+				datasets: [
+					{
+						data: [
+							50000000, 30000000, 25000000, 30000000, 55000000,
+							20000000,
+						],
+						backgroundColor: [
+							"#601123",
+							"#8E1B35",
+							"#C73254",
+							"#BE6D7F",
+							"#CA8A93",
+							"#EEB9C5",
+						],
+						borderWidth: 0.5,
+						scaleBeginAtZero: true,
+					},
+				],
+			},
+			options: {
+				legend: {
+					display: false,
+				},
+				plugins: {
+					labels: {
+						fontColor: 'white',
+						fontSize: 14
+					}
+				}
+			},
+		});
+	</script>
+</body>
+
+</html>

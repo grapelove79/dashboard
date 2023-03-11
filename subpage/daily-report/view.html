@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<title>NUBEBE</title>
+	<!-- jQuery CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<!-- daterangepicker -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+	<link rel="icon" href="/_image/common/favicon.ico" type="image/x-icon" sizes="32x32" />
+	<link rel="stylesheet" href="../../_css/reset.css" />
+	<link rel="stylesheet" href="../../_css/common.css" />
+	<link rel="stylesheet" href="../../_css/style.css" />
+	<script src="../../_js/common.js" defer></script>
+	<script src="../../_js/dashbord.js" defer></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<header class="header" id="header"></header>
+		<!--메인 시작-->
+		<main class="daily-report page-main">
+			<div class="page-container paper">
+				<article class="page-content ptb55">
+					<div class="daily-report-title">
+						<div class="date-box">
+							<input type="date" data-placeholder="연-월-일" value="2023-02-24" required />
+						</div>
+						<h3><span>강남점</span> 일일 결산 보고서 확인</h3>
+					</div>
+					<form class="daily-report-form">
+						<table class="report-table view">
+							<colgroup>
+								<col width="13%" />
+								<col width="8%" />
+								<col width="10%" />
+								<col width="9%" />
+								<col width="10%" />
+								<col width="10%" />
+								<col width="10%" />
+								<col width="10%" />
+								<col width="10%" />
+								<col width="10%" />
+							</colgroup>
+							<tbody>
+								<tr>
+									<td class="title" colspan="4" rowspan="2">
+										<span>강남점</span> 일일 결산 보고서 <br />
+										<b>2023.01.26 목요일</b>
+									</td>
+									<td colspan="2">담당</td>
+									<td colspan="2">실장</td>
+									<td colspan="2">대표원장</td>
+								</tr>
+								<tr>
+									<td colspan="2" class="h105"></td>
+									<td colspan="2" class="h105"></td>
+									<td colspan="2" class="h105"></td>
+								</tr>
+								<tr>
+									<th>평균 진료 수</th>
+									<td class="gray" colspan="3"></td>
+									<th>총 환자 수</th>
+									<td class="gray" colspan="5"></td>
+								</tr>
+								<tr class="bd-active">
+									<th rowspan="2">의료진 수</th>
+									<td rowspan="2"></td>
+									<th rowspan="2">진료의 수</th>
+									<td rowspan="2"></td>
+									<td class="active" colspan="2">초진</td>
+									<td class="active" colspan="2">패키지</td>
+									<td colspan="2">재진</td>
+								</tr>
+								<tr>
+									<td class="active" colspan="2"></td>
+									<td class="active" colspan="2"></td>
+									<td colspan="2"></td>
+								</tr>
+								<tr class="bd-active">
+									<th>전일 매출</th>
+									<td colspan="3"></td>
+									<td class="active">내원</td>
+									<td class="active"></td>
+									<td class="active">내원</td>
+									<td class="active"></td>
+									<td>내원</td>
+									<td></td>
+								</tr>
+								<tr>
+									<th>일 매출</th>
+									<td class="active" colspan="3"></td>
+									<td class="active">비대면</td>
+									<td class="active"></td>
+									<td class="active">비대면</td>
+									<td class="active"></td>
+									<td>CRM</td>
+									<td></td>
+								</tr>
+								<tr>
+									<th>월 매출</th>
+									<td class="gray" colspan="3"></td>
+									<td>기타</td>
+									<td></td>
+									<td>R초진</td>
+									<td></td>
+									<td>기타</td>
+									<td></td>
+								</tr>
+								<tr class="bd-active">
+									<th>
+										월 누적<br />
+										환불율
+									</th>
+									<td colspan="3"></td>
+									<th colspan="2">23년 누적 패키지</th>
+									<td colspan="4"></td>
+								</tr>
+								<tr class="bd-active">
+									<th rowspan="12">의료 수입</th>
+									<th rowspan="4">한 차트</th>
+									<td colspan="2">카드</td>
+									<td colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr>
+									<td colspan="2">현금</td>
+									<td colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr>
+									<td colspan="2">통장</td>
+									<td colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr>
+									<td colspan="2">기타</td>
+									<td colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr>
+									<th rowspan="2">
+										결재<br />
+										시스템<br />총합
+									</th>
+									<td colspan="2">카드</td>
+									<td class="gray" colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr>
+									<td colspan="2">현금</td>
+									<td class="gray" colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr>
+									<th rowspan="3">
+										결재<br />
+										시스템<br />카드
+									</th>
+									<td colspan="2">단말기</td>
+									<td colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr>
+									<td colspan="2">메인페이</td>
+									<td colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr>
+									<td colspan="2">챗봇</td>
+									<td colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr>
+									<th rowspan="3">
+										결재<br />
+										시스템<br />현금
+									</th>
+									<td colspan="2">단말기</td>
+									<td colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr>
+									<td colspan="2">메인페이</td>
+									<td colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr>
+									<td colspan="2">기타</td>
+									<td colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr class="bd-active">
+									<th rowspan="4" colspan="2">금고 내역</th>
+									<td colspan="2">전일금고</td>
+									<td colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr>
+									<td colspan="2">지출</td>
+									<td colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr>
+									<td colspan="2">입금</td>
+									<td colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr>
+									<td colspan="2">금일금고</td>
+									<td class="gray" colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr class="bd-active">
+									<th rowspan="3" colspan="2">한차트 <br />환불</th>
+									<td colspan="2">카드</td>
+									<td colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr>
+									<td colspan="2">현금</td>
+									<td colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+								<tr>
+									<td colspan="2">총합계</td>
+									<td class="gray" colspan="3"></td>
+									<td class="txL" colspan="3">원</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="download-area">
+							<a href="javascript:void(0)">
+								<img src="../../_image/common/icon_download_orange.svg" alt="다운로드" />
+								JPG
+							</a>
+							<a href="javascript:void(0)">
+								<img src="../../_image/common/icon_download_red.svg" alt="다운로드" />
+								PDF
+							</a>
+							<a href="javascript:void(0)">
+								<img src="../../_image/common/icon_download_green.svg" alt="다운로드" />
+								엑셀
+							</a>
+							<a href="javascript:void(0)">
+								<img src="../../_image/common/icon_download_gray.svg" alt="다운로드" />
+								인쇄
+							</a>
+						</div>
+					</form>
+					<div class="btn-center-group">
+						<a type="button" class="btn btn-report" href="../daily-report/calendar.html">목록</a>
+						<a type="button" class="btn btn-report" href="../daily-report/add.html">수정</a>
+					</div>
+				</article>
+			</div>
+		</main>
+		<!--메인 끝-->
+	</div>
+	<script></script>
+</body>
+
+</html>

@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<title>NUBEBE</title>
+	<!-- jQuery CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<!-- chart.js CDN -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+	<!-- daterangepicker -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+	<link rel="icon" href="/_image/common/favicon.ico" type="image/x-icon" sizes="32x32" />
+	<link rel="stylesheet" href="../../_css/reset.css" />
+	<link rel="stylesheet" href="../../_css/common.css" />
+	<link rel="stylesheet" href="../../_css/admin.css" />
+	<script src="../../_js/common.js" defer></script>
+	<script src="../../_js/admin.js" defer></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<!--헤더시작-->
+		<header class="header" id="header"></header>
+		<!-- 헤더 끝 -->
+
+		<!--메인 시작-->
+		<main class="sales page-main">
+			<!-- 사이드바 시작 -->
+			<aside class="aside-nav">
+				<ul class="aside-local-nav">
+					<li>
+						<a href="../sales/sales-chart.html">매출</a>
+					</li>
+					<li>
+						<a href="../sales/refund-chart.html">환불</a>
+					</li>
+				</ul>
+			</aside>
+			<!-- 사이드바 끝 -->
+			<div class="page-container">
+				<article class="page-content ptb19">
+					<div class="admin-branch-tab-area">
+						<!-- 지점 필터 -->
+						<ul class="admin-branch-tab">
+							<li id="all" class="on">전지점</li>
+							<li>분당점</li>
+							<li>잠실점</li>
+							<li>강남점</li>
+							<li>홍대점</li>
+							<li>부천점</li>
+							<li>부산점</li>
+						</ul>
+						<ul class="tab mt48">
+							<li class="on" data-tab="sales">
+								<a href="javascript:void(0)">매출</a>
+							</li>
+							<li data-tab="day-report">
+								<a href="javascript:void(0)">일일<br />결산 보고서</a>
+							</li>
+							<li data-tab="goal">
+								<a href="javascript:void(0)">목표달성도</a>
+							</li>
+						</ul>
+						<!-- 전지점인 경우 -->
+						<div id="sales" class="tab-content on">
+							<div class="sales-grid-area">
+								<div>
+									<h3 class="title">일간</h3>
+									<table class="main-table admin mt20">
+										<thead>
+											<tr>
+												<th></th>
+												<th>전지점</th>
+												<th>분당점</th>
+												<th>잠실점</th>
+												<th>강남점</th>
+												<th>홍대점</th>
+												<th>부천점</th>
+												<th>부산점</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<th>일간</th>
+												<td>60,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+											</tr>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<td>50,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>5,000</td>
+												<td>5,000</td>
+											</tr>
+											<tr>
+												<td><span class="red">+20%</span></td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td><span class="red">+50%</span></td>
+												<td><span class="red">+50%</span></td>
+												<td>-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div>
+									<h3 class="title">주간</h3>
+									<table class="main-table admin mt20">
+										<thead>
+											<tr>
+												<th></th>
+												<th>전지점</th>
+												<th>분당점</th>
+												<th>잠실점</th>
+												<th>강남점</th>
+												<th>홍대점</th>
+												<th>부천점</th>
+												<th>부산점</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<th>일간</th>
+												<td>60,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+											</tr>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<td>50,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>5,000</td>
+												<td>5,000</td>
+											</tr>
+											<tr>
+												<td><span class="red">+20%</span></td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td><span class="red">+50%</span></td>
+												<td><span class="red">+50%</span></td>
+												<td>-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div>
+									<h3 class="title">월간</h3>
+									<table class="main-table admin mt20">
+										<thead>
+											<tr>
+												<th></th>
+												<th>전지점</th>
+												<th>분당점</th>
+												<th>잠실점</th>
+												<th>강남점</th>
+												<th>홍대점</th>
+												<th>부천점</th>
+												<th>부산점</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<th>일간</th>
+												<td>60,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+											</tr>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<td>50,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>5,000</td>
+												<td>5,000</td>
+											</tr>
+											<tr>
+												<td><span class="red">+20%</span></td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td><span class="red">+50%</span></td>
+												<td><span class="red">+50%</span></td>
+												<td>-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div>
+									<h3 class="title">연간</h3>
+									<table class="main-table admin mt20">
+										<thead>
+											<tr>
+												<th></th>
+												<th>전지점</th>
+												<th>분당점</th>
+												<th>잠실점</th>
+												<th>강남점</th>
+												<th>홍대점</th>
+												<th>부천점</th>
+												<th>부산점</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<th>일간</th>
+												<td>60,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+											</tr>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<td>50,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>10,000</td>
+												<td>5,000</td>
+												<td>5,000</td>
+											</tr>
+											<tr>
+												<td><span class="red">+20%</span></td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td><span class="red">+50%</span></td>
+												<td><span class="red">+50%</span></td>
+												<td>-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="compared-list mt50">
+								<div class="compared-item">
+									<div class="title">
+										<span>일간/전주대비(전주차/요일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>주간/전주대비(전주차/월~일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>월간/전년대비(전년/월)</span>
+										<b class="down">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 45%">45%</span>
+											</div>
+											<div class="this">
+												<span style="height: 23%">23%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>연간/전년대비(전년/년)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- 다른 지점 선택 or 복수선택경우 -->
+						<!-- <div id="sales" class="tab-content on">
+								<h3 class="sales-title">분당점 매출</h3>
+								<div class="sales-chart-items">
+									<div class="sales-chart-item">
+										<div class="title">
+											<strong>일간(7일)</strong>
+											<div class="range-date-box">
+												<input type="text" name="range-date" />
+											</div>
+										</div>
+										<canvas id="day-chart"></canvas>
+									</div>
+									<div class="sales-chart-item">
+										<div class="title">
+											<strong>주간(8주)</strong>
+											<div class="range-date-box">
+												<input type="text" name="range-date" />
+											</div>
+										</div>
+										<canvas id="week-chart"></canvas>
+									</div>
+									<div class="sales-chart-item">
+										<div class="title">
+											<strong>월간(6달)</strong>
+											<div class="range-date-box">
+												<input type="text" name="range-date" />
+											</div>
+										</div>
+										<canvas id="month-chart"></canvas>
+									</div>
+									<div class="sales-chart-item">
+										<div class="title">
+											<strong>연간(2년)</strong>
+											<div class="range-date-box">
+												<input type="text" name="range-date" />
+											</div>
+										</div>
+										<canvas id="year-chart"></canvas>
+									</div>
+								</div>
+								<div class="download-chart">
+									<a class="btn-download" href="javascript:void(0)">다운로드</a>
+								</div>
+								<div class="compared-list">
+									<div class="compared-item">
+										<div class="title">
+											<span>일간/전주대비(전주차/요일)</span>
+											<b class="up">12%</b>
+										</div>
+										<div class="compared">
+											<div class="compared-price">
+												<span class="last"
+													>지난주 : 총 328,000,000원</span
+												>
+												<span class="this"
+													>이번주 : 총 328,000,000원</span
+												>
+											</div>
+											<div class="compared-chart">
+												<div class="last">
+													<span style="height: 23%">23%</span>
+												</div>
+												<div class="this">
+													<span style="height: 45%">45%</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="compared-item">
+										<div class="title">
+											<span>주간/전주대비(전주차/월~일)</span>
+											<b class="up">12%</b>
+										</div>
+										<div class="compared">
+											<div class="compared-price">
+												<span class="last"
+													>지난주 : 총 328,000,000원</span
+												>
+												<span class="this"
+													>이번주 : 총 328,000,000원</span
+												>
+											</div>
+											<div class="compared-chart">
+												<div class="last">
+													<span style="height: 23%">23%</span>
+												</div>
+												<div class="this">
+													<span style="height: 45%">45%</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="compared-item">
+										<div class="title">
+											<span>월간/전년대비(전년/월)</span>
+											<b class="down">12%</b>
+										</div>
+										<div class="compared">
+											<div class="compared-price">
+												<span class="last"
+													>지난주 : 총 328,000,000원</span
+												>
+												<span class="this"
+													>이번주 : 총 328,000,000원</span
+												>
+											</div>
+											<div class="compared-chart">
+												<div class="last">
+													<span style="height: 45%">45%</span>
+												</div>
+												<div class="this">
+													<span style="height: 23%">23%</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="compared-item">
+										<div class="title">
+											<span>연간/전년대비(전년/년)</span>
+											<b class="up">12%</b>
+										</div>
+										<div class="compared">
+											<div class="compared-price">
+												<span class="last"
+													>지난주 : 총 328,000,000원</span
+												>
+												<span class="this"
+													>이번주 : 총 328,000,000원</span
+												>
+											</div>
+											<div class="compared-chart">
+												<div class="last">
+													<span style="height: 23%">23%</span>
+												</div>
+												<div class="this">
+													<span style="height: 45%">45%</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> -->
+						<div id="day-report" class="tab-content">
+							<h3 class="day-report-title">
+								일일 결산 보고서 조회/수정
+							</h3>
+							<div class="search-content">
+								<form name="searchForm" action="" method="post" onsubmit="">
+									<div class="search-area">
+										<ul class="clearfix">
+											<a class="btn-view-report" href="../sales/calendar.html">결산 보고서 기입 여부 조회</a>
+											<li class="search-list-item">
+												<strong>작성일</strong>
+												<div class="date-box">
+													<input type="date" data-placeholder="연-월-일" required />
+													<span class="date-text"> ~</span><input type="date" data-placeholder="연-월-일"
+														required />
+												</div>
+											</li>
+
+											<li class="search-list-item">
+												<strong>지점</strong>
+												<div class="select-box">
+													<button type="button" class="option-label">
+														전지점
+													</button>
+													<ul class="option-list">
+														<li class="option-item" value="list">
+															강남점
+														</li>
+														<li class="option-item" value="list">
+															홍대점
+														</li>
+														<li class="option-item" value="list">
+															분당점
+														</li>
+														<li class="option-item" value="list">
+															부산점
+														</li>
+														<li class="option-item" value="list">
+															잠실점
+														</li>
+													</ul>
+												</div>
+											</li>
+											<li class="search-list-item">
+												<strong>작성자</strong>
+												<div class="input-box search-report">
+													<input type="text" class="w500" name="nm" id="nm" />
+													<button class="btn btn-normal-pink">
+														검색
+													</button>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</form>
+								<div class="search-result-area">
+									<h4 class="search-title-sub">보고서 목록</h4>
+									<div class="result-list">
+										<table>
+											<colgroup>
+												<col style="width: 10%" />
+												<col style="width: 20%" />
+												<col style="width: 15%" />
+												<col style="width: 15%" />
+												<col style="width: 15%" />
+												<col style="width: 15%" />
+												<col style="width: 10%" />
+											</colgroup>
+											<thead>
+												<tr>
+													<th>순번</th>
+													<th>보고서명</th>
+													<th>작성일</th>
+													<th>지점</th>
+													<th>작성자</th>
+													<th>보고서 확인</th>
+													<th>내용 수정</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>00010</td>
+													<td>YYYYMMDD_일일결산보고서</td>
+													<td>2023.09.23</td>
+													<td>강남점</td>
+													<td>홍길동</td>
+													<td>
+														<a class="small-btn btn-small-pink" href="./view.html">
+															바로가기
+														</a>
+													</td>
+													<td>
+														<a class="btn-modify" href="./add.html">수정</a>
+													</td>
+												</tr>
+												<tr>
+													<td>00010</td>
+													<td>YYYYMMDD_일일결산보고서</td>
+													<td>2023.09.23</td>
+													<td>강남점</td>
+													<td>홍길동</td>
+													<td>
+														<a class="small-btn btn-small-pink" href="./view.html">
+															바로가기
+														</a>
+													</td>
+													<td>
+														<a class="btn-modify" href="./add.html">수정</a>
+													</td>
+												</tr>
+												<tr>
+													<td>00010</td>
+													<td>YYYYMMDD_일일결산보고서</td>
+													<td>2023.09.23</td>
+													<td>강남점</td>
+													<td>홍길동</td>
+													<td>
+														<a class="small-btn btn-small-pink" href="./view.html">
+															바로가기
+														</a>
+													</td>
+													<td>
+														<a class="btn-modify" href="./add.html">수정</a>
+													</td>
+												</tr>
+												<tr>
+													<td>00010</td>
+													<td>YYYYMMDD_일일결산보고서</td>
+													<td>2023.09.23</td>
+													<td>강남점</td>
+													<td>홍길동</td>
+													<td>
+														<a class="small-btn btn-small-pink" href="./view.html">
+															바로가기
+														</a>
+													</td>
+													<td>
+														<a class="btn-modify" href="./add.html">수정</a>
+													</td>
+												</tr>
+												<tr>
+													<td>00010</td>
+													<td>YYYYMMDD_일일결산보고서</td>
+													<td>2023.09.23</td>
+													<td>강남점</td>
+													<td>홍길동</td>
+													<td>
+														<a class="small-btn btn-small-pink" href="./view.html">
+															바로가기
+														</a>
+													</td>
+													<td>
+														<a class="btn-modify" href="./add.html">수정</a>
+													</td>
+												</tr>
+												<tr>
+													<td>00010</td>
+													<td>YYYYMMDD_일일결산보고서</td>
+													<td>2023.09.23</td>
+													<td>강남점</td>
+													<td>홍길동</td>
+													<td>
+														<a class="small-btn btn-small-pink" href="./view.html">
+															바로가기
+														</a>
+													</td>
+													<td>
+														<a class="btn-modify" href="./add.html">수정</a>
+													</td>
+												</tr>
+												<tr>
+													<td>00010</td>
+													<td>YYYYMMDD_일일결산보고서</td>
+													<td>2023.09.23</td>
+													<td>강남점</td>
+													<td>홍길동</td>
+													<td>
+														<a class="small-btn btn-small-pink" href="./view.html">
+															바로가기
+														</a>
+													</td>
+													<td>
+														<a class="btn-modify" href="./add.html">수정</a>
+													</td>
+												</tr>
+												<tr>
+													<td>00010</td>
+													<td>YYYYMMDD_일일결산보고서</td>
+													<td>2023.09.23</td>
+													<td>강남점</td>
+													<td>홍길동</td>
+													<td>
+														<a class="small-btn btn-small-pink" href="./view.html">
+															바로가기
+														</a>
+													</td>
+													<td>
+														<a class="btn-modify" href="./add.html">수정</a>
+													</td>
+												</tr>
+												<tr>
+													<td>00010</td>
+													<td>YYYYMMDD_일일결산보고서</td>
+													<td>2023.09.23</td>
+													<td>강남점</td>
+													<td>홍길동</td>
+													<td>
+														<a class="small-btn btn-small-pink" href="./view.html">
+															바로가기
+														</a>
+													</td>
+													<td>
+														<a class="btn-modify" href="./add.html">수정</a>
+													</td>
+												</tr>
+												<tr>
+													<td>00010</td>
+													<td>YYYYMMDD_일일결산보고서</td>
+													<td>2023.09.23</td>
+													<td>강남점</td>
+													<td>홍길동</td>
+													<td>
+														<a class="small-btn btn-small-pink" href="./view.html">
+															바로가기
+														</a>
+													</td>
+													<td>
+														<a class="btn-modify" href="./add.html">수정</a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<div class="pagination">
+											<a href="javascript:void(0)" class="page_arrow_prev"><img
+													src="../../_image/common/page_arrow_prev.svg" alt="" /></a>
+											<a href="javascript:void(0)" class="num">1</a>
+											<a class="num active" href="javascript:void(0)">2</a>
+											<a href="javascript:void(0)" class="num">3</a>
+											<a href="javascript:void(0)" class="num">4</a>
+											<a href="javascript:void(0)" class="num">5</a>
+											<a href="javascript:void(0)" class="num">6</a>
+											<a href="javascript:void(0)" class="page_arrow_next"><img
+													src="../../_image/common/page_arrow_next.svg" alt="" /></a>
+										</div>
+										<button class="btn btn-normal-gray">
+											삭제
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="goal" class="tab-content">
+							<div class="achievement">
+								<div class="title">
+									<div class="select-box report">
+										<button type="button" class="option-label">
+											2023년
+										</button>
+										<ul class="option-list">
+											<li class="option-item" value="list">
+												2023년
+											</li>
+											<li class="option-item" value="list">
+												2022년
+											</li>
+											<li class="option-item" value="list">
+												2021년
+											</li>
+											<li class="option-item" value="list">
+												2020년
+											</li>
+											<li class="option-item" value="list">
+												2019년
+											</li>
+										</ul>
+									</div>
+									<h3>전지점 매출 달성도</h3>
+								</div>
+								<div class="download-chart">
+									<button class="btn-goal" onclick="openModal('modal-goal-achievement')">
+										목표도 설정
+									</button>
+									<a class="btn-download" href="javascript:void(0)">다운로드</a>
+								</div>
+								<div class="chart-area achievement-chart mt20">
+									<div class="chart-content">
+										<div class="goal-situation">
+											<span style="width: 70%">70%
+												<b>100,000,000</b>
+											</span>
+											<b class="goal-amount">150,000,000</b>
+										</div>
+										<canvas id="all-goal"></canvas>
+									</div>
+								</div>
+							</div>
+							<div class="achievement">
+								<div class="title">
+									<div class="select-box report">
+										<button type="button" class="option-label">
+											2023년
+										</button>
+										<ul class="option-list">
+											<li class="option-item" value="list">
+												2023년
+											</li>
+											<li class="option-item" value="list">
+												2022년
+											</li>
+											<li class="option-item" value="list">
+												2021년
+											</li>
+											<li class="option-item" value="list">
+												2020년
+											</li>
+											<li class="option-item" value="list">
+												2019년
+											</li>
+										</ul>
+									</div>
+									<h3>전지점 전략 매출 달성도</h3>
+								</div>
+								<div class="download-chart">
+									<button class="btn-goal" onclick="openModal('modal-goal-achievement')">
+										목표도 설정
+									</button>
+									<a class="btn-download" href="javascript:void(0)">다운로드</a>
+								</div>
+								<div class="chart-area achievement-chart mt20">
+									<div class="chart-content">
+										<div class="goal-situation">
+											<span style="width: 70%">70%
+												<b>100,000,000</b>
+											</span>
+											<b class="goal-amount">150,000,000</b>
+										</div>
+										<canvas id="all-strategy-goal"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+		</main>
+	</div>
+
+	<!-- 목표달성도 설정 시작 -->
+	<div id="modal-goal-achievement" class="modal modify-goal">
+		<div class="close-btn-area">
+			<button class="btn-close" type="button" onclick="closeModal('modal-goal-achievement')"></button>
+		</div>
+		<div class="modal-inner">
+			<div class="title">
+				<div class="select-box report">
+					<button type="button" class="option-label">2023년</button>
+					<ul class="option-list">
+						<li class="option-item" value="list">2023년</li>
+						<li class="option-item" value="list">2022년</li>
+						<li class="option-item" value="list">2021년</li>
+						<li class="option-item" value="list">2020년</li>
+						<li class="option-item" value="list">2019년</li>
+					</ul>
+				</div>
+				<h3 class="modal-title">목표 매출</h3>
+			</div>
+			<div class="table-area branch-content">
+				<table>
+					<colgroup>
+						<col style="width: 25%" />
+						<col style="width: 25%" />
+						<col style="width: 25%" />
+						<col style="width: 25%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>지점</th>
+							<th>매출 목표 금액</th>
+							<th>전략 매출 목표 금액</th>
+							<th>편집</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>전지점</td>
+							<td>54,000,000</td>
+							<td>54,000,000</td>
+							<td>
+								<button class="btn-modify" onclick="openModal('modal-goal-sales')">
+									수정
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="table-area branch-content">
+				<table>
+					<colgroup>
+						<col style="width: 25%" />
+						<col style="width: 25%" />
+						<col style="width: 25%" />
+						<col style="width: 25%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>지점</th>
+							<th>매출 목표 금액</th>
+							<th>전략 매출 목표 금액</th>
+							<th>편집</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>분당점</td>
+							<td>54,000,000</td>
+							<td>54,000,000</td>
+							<td>
+								<button class="btn-modify" onclick="openModal('modal-branch')">
+									수정
+								</button>
+							</td>
+						</tr>
+						<tr>
+							<td>분당점</td>
+							<td>54,000,000</td>
+							<td>54,000,000</td>
+							<td>
+								<button class="btn-modify" onclick="openModal('modal-branch')">
+									수정
+								</button>
+							</td>
+						</tr>
+						<tr>
+							<td>분당점</td>
+							<td>54,000,000</td>
+							<td>54,000,000</td>
+							<td>
+								<button class="btn-modify" onclick="openModal('modal-branch')">
+									수정
+								</button>
+							</td>
+						</tr>
+						<tr>
+							<td>분당점</td>
+							<td>54,000,000</td>
+							<td>54,000,000</td>
+							<td>
+								<button class="btn-modify" onclick="openModal('modal-branch')">
+									수정
+								</button>
+							</td>
+						</tr>
+						<tr>
+							<td>분당점</td>
+							<td>54,000,000</td>
+							<td>54,000,000</td>
+							<td>
+								<button class="btn-modify" onclick="openModal('modal-branch')">
+									수정
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="btn-center-group mt20">
+					<button type="button" id="btn-add-branch" class="btn btn-branch" onclick="openModal('modal-branch')">
+						지점 추가 +
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 목표달성도 설정 끝 -->
+
+	<!-- 목표 매출 시작 -->
+	<div id="modal-goal-sales" class="modal modify-goal-sales">
+		<div class="modal-inner">
+			<h3 class="modal-title">목표 매출</h3>
+			<form class="modify-goal-sales" name="modify-goal-sales">
+				<div class="modal-content">
+					<ul>
+						<li>
+							<span class="w150">목표 금액</span>
+							<div class="input-box">
+								<input type="text" name="goalAmount" id="goalAmount" />
+							</div>
+						</li>
+						<li>
+							<span class="w150">전략매출 목표금액</span>
+							<div class="input-box">
+								<input type="text" name="sgoalAmount" id="sgoalAmount" />
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="modal-btn-group">
+					<button class="btn btn-close" type="button" onclick="closeModal('modal-goal-sales')">
+						닫기
+					</button>
+					<button class="btn btn-check" type="submit">저장</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- 목표 매출 끝 -->
+
+	<!-- 지점 추가 및 수정 시작 -->
+	<div id="modal-branch" class="modal modify-goal-sales">
+		<div class="modal-inner">
+			<h3 class="modal-title">지점 추가 및 수정</h3>
+			<form class="modify-goal-sales" name="modify-goal-sales">
+				<div class="modal-content">
+					<ul>
+						<li>
+							<span class="w150">지점 선택</span>
+							<div class="select-box">
+								<button type="button" class="option-label">
+									전지점
+								</button>
+								<ul class="option-list">
+									<li class="option-item" value="list">강남점</li>
+									<li class="option-item" value="list">홍대점</li>
+									<li class="option-item" value="list">분당점</li>
+									<li class="option-item" value="list">부산점</li>
+									<li class="option-item" value="list">잠실점</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<span class="w150">목표금액</span>
+							<div class="input-box">
+								<input type="text" name="goalAmount" id="goalAmount" />
+							</div>
+						</li>
+						<li>
+							<span class="w150">전략매출 목표금액</span>
+							<div class="input-box">
+								<input type="text" name="sgoalAmount" id="sgoalAmount" />
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="modal-btn-group">
+					<button class="btn btn-close" type="button" onclick="closeModal('modal-branch')">
+						닫기
+					</button>
+					<button class="btn btn-check" type="submit">저장</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- 지점 추가 및 수정 끝 -->
+
+	<script>
+		// 관리자 홈 - 지점별 필터
+		$("ul.admin-branch-tab li").click(function () {
+			if ($(this).attr("id") == "all") {
+				$("ul.admin-branch-tab li").removeClass("on");
+				$(this).addClass("on");
+			} else {
+				$("ul.admin-branch-tab li#all").removeClass("on");
+				$(this).toggleClass("on");
+			}
+
+			// 선택된 필터 없으면 전지점 선택
+			if ($("ul.admin-branch-tab li.on").length == 0) {
+				$("ul.admin-branch-tab li#all").addClass("on");
+			}
+		});
+
+		$('ul.tab li').click(function () {
+			let activeTab = $(this).attr("data-tab");
+			if (activeTab == 'sales') {
+				$('.admin-branch-tab').css({ "opacity": 1 })
+			} else {
+				$('.admin-branch-tab').css({ "opacity": 0 })
+			}
+		})
+
+		let goal = document.getElementById("all-goal").getContext("2d");
+
+		//주간 매출 비교
+		var goalChart = new Chart(goal, {
+			type: "bar",
+			data: {
+				labels: [""],
+				datasets: [
+					{
+						label: "분당점",
+						fill: false,
+						data: [60],
+						backgroundColor: ["#601123"],
+						borderColor: ["#601123"],
+						borderWidth: 1,
+					},
+					{
+						label: "잠실점",
+						fill: false,
+						data: [90],
+						backgroundColor: ["#8E1B35"],
+						borderColor: ["#8E1B35"],
+						borderWidth: 1,
+					},
+					{
+						label: "강남점",
+						fill: false,
+						data: [30],
+						backgroundColor: ["#C73254"],
+						borderColor: ["#C73254"],
+						borderWidth: 1,
+					},
+					{
+						label: "홍대점",
+						fill: false,
+						data: [60],
+						backgroundColor: ["#BE6D7F"],
+						borderColor: ["#BE6D7F"],
+						borderWidth: 1,
+					},
+					{
+						label: "부천점",
+						fill: false,
+						data: [50],
+						backgroundColor: ["#CA8A93"],
+						borderColor: ["#CA8A93"],
+						borderWidth: 1,
+					},
+					{
+						label: "부산점",
+						fill: false,
+						data: [60],
+						backgroundColor: ["#EEB9C5"],
+						borderColor: ["#EEB9C5"],
+						borderWidth: 1,
+					},
+				],
+			},
+			options: {
+				legend: {
+					display: false,
+				},
+				plugins: {
+					labels: {
+						fontColor: 'white',
+						fontSize: 13,
+						textMargin: -25
+					}
+				},
+				scales: {
+					yAxes: [
+						{
+							ticks: {
+								min: 0,
+								max: 100,
+								stepSize: 10,
+							},
+						},
+					],
+				},
+			},
+		});
+
+		let strategyGoal = document
+			.getElementById("all-strategy-goal")
+			.getContext("2d");
+
+		//주간 매출 비교
+		var goalChart = new Chart(strategyGoal, {
+			type: "bar",
+			data: {
+				labels: [""],
+				datasets: [
+					{
+						label: "분당점",
+						fill: false,
+						data: [60],
+						backgroundColor: ["#601123"],
+						borderColor: ["#601123"],
+						borderWidth: 1,
+					},
+					{
+						label: "잠실점",
+						fill: false,
+						data: [90],
+						backgroundColor: ["#8E1B35"],
+						borderColor: ["#8E1B35"],
+						borderWidth: 1,
+					},
+					{
+						label: "강남점",
+						fill: false,
+						data: [30],
+						backgroundColor: ["#C73254"],
+						borderColor: ["#C73254"],
+						borderWidth: 1,
+					},
+					{
+						label: "홍대점",
+						fill: false,
+						data: [60],
+						backgroundColor: ["#BE6D7F"],
+						borderColor: ["#BE6D7F"],
+						borderWidth: 1,
+					},
+					{
+						label: "부천점",
+						fill: false,
+						data: [50],
+						backgroundColor: ["#CA8A93"],
+						borderColor: ["#CA8A93"],
+						borderWidth: 1,
+					},
+					{
+						label: "부산점",
+						fill: false,
+						data: [60],
+						backgroundColor: ["#EEB9C5"],
+						borderColor: ["#EEB9C5"],
+						borderWidth: 1,
+					},
+				],
+			},
+			options: {
+				legend: {
+					display: false,
+				},
+				plugins: {
+					labels: {
+						fontColor: 'white',
+						fontSize: 13,
+						textMargin: -25
+					}
+				},
+				scales: {
+					yAxes: [
+						{
+							ticks: {
+								min: 0,
+								max: 100,
+								stepSize: 10,
+							},
+						},
+					],
+				},
+			},
+		});
+
+			// 	// 일간(7일)
+			// 	var day = document.getElementById("day-chart").getContext("2d");
+			// 	// 주간
+			// 	var week = document.getElementById("week-chart").getContext("2d");
+			// 	// 월간
+			// 	var month = document.getElementById("month-chart").getContext("2d");
+			// 	//연간
+			// 	var year = document.getElementById("year-chart").getContext("2d");
+
+			// 	var dayChart = new Chart(day, {
+			// 		type: "line",
+			// 		data: {
+			// 			labels: [
+			// 				"1월",
+			// 				"2월",
+			// 				"3월",
+			// 				"4월",
+			// 				"5월",
+			// 				"6월",
+			// 				"7월",
+			// 				"8월",
+			// 				"9월",
+			// 				"10월",
+			// 				"11월",
+			// 				"12월",
+			// 			],
+			// 			datasets: [
+			// 				{
+			// 					label: "",
+			// 					data: [80, 40, 60, 40, 55, 80, 50, 90, 80, 55, 57, 40],
+			// 					borderColor: "#C2334E",
+			// 					backgroundColor: "#C2334E",
+			// 					fill: false,
+			// 					lineTension: 0,
+			// 				},
+			// 			],
+			// 		},
+			// 		options: {
+			// 			legend: {
+			// 				display: false,
+			// 			},
+			// 			tooltips: {
+			// 				mode: "index",
+			// 				intersect: false,
+			// 			},
+			// 			hover: {
+			// 				mode: "nearest",
+			// 				intersect: true,
+			// 			},
+			// 			scales: {
+			// 				yAxes: [
+			// 					{
+			// 						ticks: {
+			// 							min: 0,
+			// 							max: 100,
+			// 							stepSize: 50,
+			// 						},
+			// 					},
+			// 				],
+			// 			},
+			// 		},
+			// 	});
+
+			// 	var weekChart = new Chart(week, {
+			// 		type: "line",
+			// 		data: {
+			// 			labels: [
+			// 				"1월",
+			// 				"2월",
+			// 				"3월",
+			// 				"4월",
+			// 				"5월",
+			// 				"6월",
+			// 				"7월",
+			// 				"8월",
+			// 				"9월",
+			// 				"10월",
+			// 				"11월",
+			// 				"12월",
+			// 			],
+			// 			datasets: [
+			// 				{
+			// 					label: "",
+			// 					data: [80, 40, 70, 35, 65, 80, 50, 90, 52, 60, 62, 70],
+			// 					borderColor: "#C2334E",
+			// 					backgroundColor: "#C2334E",
+			// 					fill: false,
+			// 					lineTension: 0,
+			// 				},
+			// 			],
+			// 		},
+			// 		options: {
+			// 			legend: {
+			// 				display: false,
+			// 			},
+			// 			tooltips: {
+			// 				mode: "index",
+			// 				intersect: false,
+			// 			},
+			// 			hover: {
+			// 				mode: "nearest",
+			// 				intersect: true,
+			// 			},
+			// 			scales: {
+			// 				yAxes: [
+			// 					{
+			// 						ticks: {
+			// 							min: 0,
+			// 							max: 100,
+			// 							stepSize: 50,
+			// 						},
+			// 					},
+			// 				],
+			// 			},
+			// 		},
+			// 	});
+
+			// 	var monthChart = new Chart(month, {
+			// 		type: "line",
+			// 		data: {
+			// 			labels: [
+			// 				"1월",
+			// 				"2월",
+			// 				"3월",
+			// 				"4월",
+			// 				"5월",
+			// 				"6월",
+			// 				"7월",
+			// 				"8월",
+			// 				"9월",
+			// 				"10월",
+			// 				"11월",
+			// 				"12월",
+			// 			],
+			// 			datasets: [
+			// 				{
+			// 					label: "",
+			// 					data: [80, 40, 60, 35, 55, 80, 50, 95, 80, 55, 58, 60],
+			// 					borderColor: "#C2334E",
+			// 					backgroundColor: "#C2334E",
+			// 					fill: false,
+			// 					lineTension: 0,
+			// 				},
+			// 			],
+			// 		},
+			// 		options: {
+			// 			legend: {
+			// 				display: false,
+			// 			},
+			// 			tooltips: {
+			// 				mode: "index",
+			// 				intersect: false,
+			// 			},
+			// 			hover: {
+			// 				mode: "nearest",
+			// 				intersect: true,
+			// 			},
+			// 			scales: {
+			// 				yAxes: [
+			// 					{
+			// 						ticks: {
+			// 							min: 0,
+			// 							max: 100,
+			// 							stepSize: 50,
+			// 						},
+			// 					},
+			// 				],
+			// 			},
+			// 		},
+			// 	});
+
+			// 	var yearChart = new Chart(year, {
+			// 		type: "line",
+			// 		data: {
+			// 			labels: [
+			// 				"1월",
+			// 				"2월",
+			// 				"3월",
+			// 				"4월",
+			// 				"5월",
+			// 				"6월",
+			// 				"7월",
+			// 				"8월",
+			// 				"9월",
+			// 				"10월",
+			// 				"11월",
+			// 				"12월",
+			// 			],
+			// 			datasets: [
+			// 				{
+			// 					label: "",
+			// 					data: [80, 40, 65, 35, 60, 80, 50, 95, 85, 55, 60, 40],
+			// 					borderColor: "#C2334E",
+			// 					backgroundColor: "#C2334E",
+			// 					fill: false,
+			// 					lineTension: 0,
+			// 				},
+			// 			],
+			// 		},
+			// 		options: {
+			// 			legend: {
+			// 				display: false,
+			// 			},
+			// 			tooltips: {
+			// 				mode: "index",
+			// 				intersect: false,
+			// 			},
+			// 			hover: {
+			// 				mode: "nearest",
+			// 				intersect: true,
+			// 			},
+			// 			scales: {
+			// 				yAxes: [
+			// 					{
+			// 						ticks: {
+			// 							min: 0,
+			// 							max: 100,
+			// 							stepSize: 50,
+			// 						},
+			// 					},
+			// 				],
+			// 			},
+			// 		},
+			// 	});
+			//
+	</script>
+</body>
+
+</html>

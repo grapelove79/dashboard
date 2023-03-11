@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<title>NUBEBE</title>
+	<!-- jQuery CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<!-- chart.js CDN -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+	<link rel="icon" href="/_image/common/favicon.ico" type="image/x-icon" sizes="32x32" />
+	<link rel="stylesheet" href="/../../_css/reset.css" />
+	<link rel="stylesheet" href="/../../_css/common.css" />
+	<link rel="stylesheet" href="/../../_css/admin.css" />
+	<script src="../../_js/admin.js" defer></script>
+	<script src="../../_js/common.js" defer></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<!--헤더시작-->
+		<header class="header" id="header"></header>
+		<!-- 헤더 끝 -->
+
+		<!--메인 시작-->
+		<main class="admin-report page-main">
+			<div class="report-container">
+				<article class="report page-content ptb192">
+					<div class="report-wrap">
+						<h3 class="report-title">관리자 보고</h3>
+						<div class="report-items">
+							<div class="report-item">
+								<strong>주간 초진 수 비교(21년, 22년, 지난주)</strong>
+								<div class="chart-area">
+									<div class="chart-content">
+										<h3 class="chart-title">주간 초진수 비교</h3>
+										<canvas id="weekly-chart" width="700" height="300"></canvas>
+										<div class="chart-table">
+											<table>
+												<colgroup>
+													<col style="width: 25%" />
+													<col style="width: 25%" />
+													<col style="width: 25%" />
+													<col style="width: 25%" />
+												</colgroup>
+												<thead>
+													<tr>
+														<th>증감여부</th>
+														<th>지난주 대비</th>
+														<th>22년대비</th>
+														<th>21년대비</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>주간 총 초진수</th>
+														<td>-28.09%</td>
+														<td>-30.69%</td>
+														<td>-42.51%</td>
+													</tr>
+													<tr>
+														<th>비대면 초진수</th>
+														<td>-21.97%</td>
+														<td>-15.51%</td>
+														<td>-7.89%</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="download-chart">
+									<a class="btn-download" href="javascript:void(0)">다운로드</a>
+								</div>
+							</div>
+							<div class="report-item">
+								<strong>주간 초진 패키지 수 비교(21 ~ 23년)</strong>
+								<div class="chart-area not-table">
+									<div class="chart-content">
+										<h3 class="chart-title">주간 초진 패키지수</h3>
+										<canvas id="weekly-first-package-chart" width="800" height="400"></canvas>
+									</div>
+								</div>
+								<div class="download-chart">
+									<a class="btn-download" href="javascript:void(0)">다운로드</a>
+								</div>
+							</div>
+							<div class="report-item">
+								<strong>주간 초진비 대면 패키지 수 비교(21 ~
+									23년)</strong>
+								<div class="chart-area not-table">
+									<div class="chart-content">
+										<h3 class="chart-title">
+											주간 초진비 대면 패키지수
+										</h3>
+										<canvas id="weekly-first-interview-package-chart" width="800" height="400"></canvas>
+									</div>
+								</div>
+								<div class="download-chart">
+									<a class="btn-download" href="javascript:void(0)">다운로드</a>
+								</div>
+							</div>
+							<div class="report-item">
+								<strong>주간 매출 비교(21년, 22년, 지난주)</strong>
+								<div class="chart-area">
+									<div class="chart-content">
+										<h3 class="chart-title">주간 매출 비교</h3>
+										<canvas id="weekly-sales"></canvas>
+										<div class="chart-table">
+											<table>
+												<colgroup>
+													<col style="width: 25%" />
+													<col style="width: 25%" />
+													<col style="width: 25%" />
+													<col style="width: 25%" />
+												</colgroup>
+												<thead>
+													<tr>
+														<th>증감여부</th>
+														<th>지난주 대비</th>
+														<th>22년대비</th>
+														<th>21년대비</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>주간매출</th>
+														<td>-28.09%</td>
+														<td>-30.69%</td>
+														<td>-42.51%</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="download-chart">
+									<a class="btn-download" href="javascript:void(0)">다운로드</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+		</main>
+	</div>
+
+	<script type="text/javascript">
+		// 주간 초진 수 비교
+		let weeklyFirst = document
+			.getElementById("weekly-chart")
+			.getContext("2d");
+		// 주간 초진 패키지수
+		let weeklyFirstPackage = document
+			.getElementById("weekly-first-package-chart")
+			.getContext("2d");
+		//주간 초진비 대면 패키지수
+		let weeklyFirstInterViewPackage = document
+			.getElementById("weekly-first-interview-package-chart")
+			.getContext("2d");
+		//주간 매출 비교
+		let weeklySale = document
+			.getElementById("weekly-sales")
+			.getContext("2d");
+
+		let lineLabel = [
+			"1월1주차",
+			"1월2주차",
+			"1월3주차",
+			"1월4주차",
+			"2월1주차",
+			"2월2주차",
+			"2월3주차",
+			"2월4주차",
+			"3월1주차",
+			"3월2주차",
+			"3월3주차",
+			"3월4주차",
+			"4월1주차",
+			"4월2주차",
+			"4월3주차",
+			"4월4주차",
+			"5월1주차",
+			"5월2주차",
+			"5월3주차",
+			"5월4주차",
+			"6월1주차",
+			"6월2주차",
+			"6월3주차",
+			"6월4주차",
+			"7월1주차",
+			"7월2주차",
+			"7월3주차",
+			"7월4주차",
+			"8월1주차",
+			"8월2주차",
+			"8월3주차",
+			"8월4주차",
+			"9월1주차",
+			"9월2주차",
+			"9월3주차",
+			"9월4주차",
+			"10월1주차",
+			"10월2주차",
+			"10월3주차",
+			"10월4주차",
+			"11월1주차",
+			"11월2주차",
+			"11월3주차",
+			"11월4주차",
+			"12월1주차",
+			"12월2주차",
+			"12월3주차",
+			"12월4주차",
+		];
+
+		// 주간 초진 수 비교
+		let weeklyFirstChart = new Chart(weeklyFirst, {
+			type: "bar",
+			data: {
+				labels: ["총 초진수", "비대면 초진수"],
+				datasets: [
+					{
+						label: "1/16 ~ 1/21",
+						fill: false,
+						data: [499, 502],
+						backgroundColor: "#601123",
+						borderColor: "#601123",
+						borderWidth: 1,
+					},
+					{
+						label: "1/9 ~ 1/14",
+						fill: false,
+						data: [450, 612],
+						backgroundColor: "#8E1B35",
+						borderColor: "#8E1B35",
+						borderWidth: 1,
+					},
+					{
+						label: "2022",
+						fill: false,
+						data: [530, 499],
+						backgroundColor: "#CA8A93",
+						borderColor: "#CA8A93",
+						borderWidth: 1,
+					},
+					{
+						label: "2021",
+						fill: false,
+						data: [300, 430],
+						backgroundColor: "#EEB9C5",
+						borderColor: "#EEB9C5",
+						borderWidth: 1,
+					},
+				],
+			},
+			options: {
+				plugins: {
+					labels: {
+						render: 'value',
+						fontColor: 'black',
+						fontSize: 13,
+					}
+				},
+				scales: {
+					xAxes: [{
+						ticks: {
+							fontColor: 'black',
+							fontSize: 17,
+						}
+					}],
+					yAxes: [
+						{
+							ticks: {
+								min: 0,
+							},
+						},
+					],
+				},
+			},
+		});
+
+		// 주간 초진 패키지수
+		let weeklyFirstPackageChart = new Chart(weeklyFirstPackage, {
+			type: "line",
+			data: {
+				labels: lineLabel,
+				datasets: [
+					{
+						label: "2021년",
+						data: [
+							820, 809, 834, 890, 833, 535, 859, 1063, 1139, 1066,
+							1145, 1224, 1173, 1199, 1266, 1217, 1195, 1056, 977,
+							1057, 1047, 1188, 1153, 1146, 1176, 1111, 1104, 1017,
+							1008, 921, 858, 826, 830, 815, 774, 738, 723, 641, 605,
+							1001, 797, 777, 694, 626, 744, 902, 709, 664, 631, 663,
+							619, 565, 564,
+						],
+						borderColor: "#4472C4",
+						backgroundColor: "#4472C4",
+						fill: false,
+						lineTension: 0,
+					},
+					{
+						label: "2022년",
+						data: [
+							816, 809, 691, 660, 545, 859, 827, 679, 671, 691, 815,
+							693, 785, 810, 890, 925, 878, 739, 882, 884, 909, 842,
+							788, 819, 806, 818, 831, 786, 738, 714, 638, 685, 650,
+							571, 727, 425, 750, 803, 740, 647, 636, 675, 626, 621,
+							536, 560, 664, 631, 663, 552, 406, 550,
+						],
+						borderColor: "#ED7D31",
+						backgroundColor: "#ED7D31",
+						fill: false,
+						lineTension: 0,
+					},
+					{
+						label: "2022년",
+						data: [572, 676, 489],
+						borderColor: "#C00000",
+						backgroundColor: "#C00000",
+						fill: false,
+						lineTension: 0,
+					},
+				],
+			},
+			options: {
+				legend: {
+					display: true,
+					position: "bottom",
+				},
+				responsive: true,
+				plugins: {
+					labels: {
+						render: 'value',
+						fontColor: 'black',
+						fontSize: 13,
+					}
+				},
+				title: {
+					display: false,
+				},
+				hover: {
+					mode: "nearest",
+					intersect: true,
+				},
+				scales: {
+					yAxes: [
+						{
+							ticks: {
+								min: 0,
+								max: 1400,
+								stepSize: 200,
+							},
+						},
+					],
+				},
+			}
+		});
+
+		//주간 초진비 대면 패키지수
+		let weeklyFirstInterViewPackageChart = new Chart(
+			weeklyFirstInterViewPackage,
+			{
+				type: "line",
+				data: {
+					labels: lineLabel,
+					datasets: [
+						{
+							label: "2021년",
+							data: [
+								820, 809, 834, 890, 833, 535, 859, 1063, 1139, 1066,
+								1145, 1224, 1173, 1199, 1266, 1217, 1195, 1056, 977,
+								1057, 1047, 1188, 1153, 1146, 1176, 1111, 1104, 1017,
+								1008, 921, 858, 826, 830, 815, 774, 738, 723, 641,
+								605, 1001, 797, 777, 694, 626, 744, 902, 709, 664,
+								631, 663, 619, 565, 564,
+							],
+							borderColor: "#4472C4",
+							backgroundColor: "#4472C4",
+							fill: false,
+							lineTension: 0,
+						},
+						{
+							label: "2022년",
+							data: [
+								816, 809, 691, 660, 545, 859, 827, 679, 671, 691,
+								815, 693, 785, 810, 890, 925, 878, 739, 882, 884,
+								909, 842, 788, 819, 806, 818, 831, 786, 738, 714,
+								638, 685, 650, 571, 727, 425, 750, 803, 740, 647,
+								636, 675, 626, 621, 536, 560, 664, 631, 663, 552,
+								406, 550,
+							],
+							borderColor: "#ED7D31",
+							backgroundColor: "#ED7D31",
+							fill: false,
+							lineTension: 0,
+						},
+						{
+							label: "2022년",
+							data: [572, 676, 489],
+							borderColor: "#C00000",
+							backgroundColor: "#C00000",
+							fill: false,
+							lineTension: 0,
+						},
+					],
+				},
+				options: {
+					legend: {
+						display: true,
+						position: "bottom",
+					},
+					responsive: true,
+					title: {
+						display: false,
+					},
+					hover: {
+						mode: "nearest",
+						intersect: true,
+					},
+					scales: {
+						yAxes: [
+							{
+								ticks: {
+									min: 0,
+									max: 1400,
+									stepSize: 200,
+								},
+							},
+						],
+					}
+				},
+			}
+		);
+
+		//주간 매출 비교
+		let weeklySaleChart = new Chart(weeklySale, {
+			type: "bar",
+			data: {
+				labels: [""],
+				datasets: [
+					{
+						label: "1/16 ~ 1/21",
+						fill: false,
+						data: [365660570],
+						backgroundColor: ["#601123"],
+						borderColor: ["#601123"],
+						borderWidth: 1,
+					},
+					{
+						label: "1/9 ~ 1/14",
+						fill: false,
+						data: [385660570],
+						backgroundColor: ["#8E1B35"],
+						borderColor: ["#8E1B35"],
+						borderWidth: 1,
+					},
+					{
+						label: "2022",
+						fill: false,
+						data: [305660570],
+						backgroundColor: ["#CA8A93"],
+						borderColor: ["#CA8A93"],
+						borderWidth: 1,
+					},
+					{
+						label: "2021",
+						fill: false,
+						data: [285660570],
+						backgroundColor: ["#EEB9C5"],
+						borderColor: ["#EEB9C5"],
+						borderWidth: 1,
+					},
+				],
+			},
+			options: {
+				plugins: {
+					labels: {
+						render: 'value',
+						fontColor: 'black',
+						fontSize: 13,
+					}
+				},
+			}
+		});
+	</script>
+</body>
+
+</html>

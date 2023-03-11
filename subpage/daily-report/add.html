@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<title>NUBEBE</title>
+	<!-- jQuery CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<!-- daterangepicker -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+	<link rel="icon" href="/_image/common/favicon.ico" type="image/x-icon" sizes="32x32" />
+	<link rel="stylesheet" href="../../_css/reset.css" />
+	<link rel="stylesheet" href="../../_css/common.css" />
+	<link rel="stylesheet" href="../../_css/style.css" />
+	<script src="../../_js/common.js" defer></script>
+	<script src="../../_js/dashbord.js" defer></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<header class="header" id="header"></header>
+		<!--메인 시작-->
+		<main class="daily-report page-main">
+			<div class="page-container paper">
+				<article class="page-content ptb55">
+					<div class="daily-report-title">
+						<h3>
+							<b>2023/02/24</b><span>강남점</span> 일일 결산 보고서
+							입력
+						</h3>
+					</div>
+					<form action="" method="post" onsubmit="" class="daily-report-form">
+						<table class="report-table approval">
+							<colgroup>
+								<col width="47%" />
+								<col width="53%" />
+							</colgroup>
+							<tr>
+								<td class="title bd-t-bold" rowspan="2">
+									<span>강남점</span> 일일 결산 보고서 <br />
+									<b>2023.01.26 목요일</b>
+								</td>
+								<td class="bd-t-bold">작성자</td>
+							</tr>
+							<tr>
+								<td class="h105">
+									<input type="text" />
+								</td>
+							</tr>
+						</table>
+						<div class="input-daily-report">
+							<table class="report-table diagnosis">
+								<colgroup>
+									<col style="width: calc(60% / 3)" />
+									<col style="width: calc(60% / 3)" />
+									<col width="40%" />
+									<col style="width: calc(60% / 3)" />
+								</colgroup>
+								<tr>
+									<td class="bd-t-bold" colspan="4">
+										각 진료 구분 입력
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">의료진 수</td>
+									<td colspan="2">
+										<input type="text" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">진료의 수</td>
+									<td colspan="2">
+										<input type="text" />
+									</td>
+								</tr>
+								<tr>
+									<td rowspan="8">초진</td>
+									<td rowspan="3">내원</td>
+									<td>초진</td>
+									<td>
+										<input type="text" />
+									</td>
+								</tr>
+								<tr>
+									<td>기타</td>
+									<td>
+										<input type="text" />
+									</td>
+								</tr>
+								<tr>
+									<td>양도</td>
+									<td>
+										<input type="text" />
+									</td>
+								</tr>
+								<tr>
+									<td rowspan="3">비대면</td>
+									<td>초진</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td>기타</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td>양도</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td rowspan="2">보약</td>
+									<td>초진</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td>기타</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td rowspan="7" colspan="2">R초진</td>
+									<td>내원</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td>전화</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td>전화-내원</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td>전화-비대면</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td>비대면</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td>양도-내원</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td>양도-비대면</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td rowspan="4">재진</td>
+									<td>내원</td>
+									<td>내원</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td rowspan="3">CRM</td>
+									<td>전화</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td>비대면</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td>전화상담</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td rowspan="4" colspan="2">기타</td>
+									<td>전일처방</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td>비대면</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td>초진(예외)</td>
+									<td><input type="text" /></td>
+								</tr>
+								<tr>
+									<td>미지정</td>
+									<td><input type="text" /></td>
+								</tr>
+							</table>
+							<div class="sales">
+								<table class="report-table">
+									<colgroup>
+										<col width="30%" />
+										<col width="8%" />
+										<col width="44%" />
+										<col width="8%" />
+									</colgroup>
+									<tr>
+										<td class="bd-t-bold" colspan="4">매출입력</td>
+									</tr>
+									<tr>
+										<td class="gray">전일 매출</td>
+										<td class="gray">자동</td>
+										<td class="gray">전일연간 누적 패키지</td>
+										<td class="gray">자동</td>
+									</tr>
+									<tr>
+										<td rowspan="4">한차트</td>
+										<td colspan="2">카드</td>
+										<td><input type="text" /></td>
+									</tr>
+									<tr>
+										<td colspan="2">현금</td>
+										<td><input type="text" /></td>
+									</tr>
+									<tr>
+										<td colspan="2">통장</td>
+										<td><input type="text" /></td>
+									</tr>
+									<tr>
+										<td colspan="2">기타</td>
+										<td><input type="text" /></td>
+									</tr>
+									<tr class="bd-t-bold">
+										<td rowspan="2">결재<br />시스템<br />총합</td>
+										<td class="gray" colspan="2">카드</td>
+										<td class="gray"></td>
+									</tr>
+									<tr>
+										<td class="gray" colspan="2">현금</td>
+										<td class="gray"></td>
+									</tr>
+									<tr class="bd-t-bold">
+										<td rowspan="3">결재<br />시스템<br />카드</td>
+										<td colspan="2">단말기</td>
+										<td><input type="text" /></td>
+									</tr>
+									<tr>
+										<td colspan="2">메인페이</td>
+										<td><input type="text" /></td>
+									</tr>
+									<tr>
+										<td colspan="2">챗봇</td>
+										<td><input type="text" /></td>
+									</tr>
+									<tr>
+										<td rowspan="3">결재<br />시스템<br />현금</td>
+										<td colspan="2">단말기</td>
+										<td><input type="text" /></td>
+									</tr>
+									<tr>
+										<td colspan="2">메인페이</td>
+										<td><input type="text" /></td>
+									</tr>
+									<tr>
+										<td colspan="2">챗봇</td>
+										<td><input type="text" /></td>
+									</tr>
+									<tr>
+										<td rowspan="4">금고 내역</td>
+										<td class="gray" colspan="2">전일금고</td>
+										<td class="gray"></td>
+									</tr>
+									<tr>
+										<td colspan="2">지출</td>
+										<td><input type="text" /></td>
+									</tr>
+									<tr>
+										<td colspan="2">입금</td>
+										<td><input type="text" /></td>
+									</tr>
+									<tr>
+										<td class="gray" colspan="2">금일금고</td>
+										<td class="gray"></td>
+									</tr>
+									<tr>
+										<td rowspan="3">당일<br />한차트<br />환불</td>
+										<td colspan="2">카드</td>
+										<td><input type="text" /></td>
+									</tr>
+									<tr>
+										<td colspan="2">현금</td>
+										<td><input type="text" /></td>
+									</tr>
+									<tr>
+										<td class="gray" colspan="2">총합계</td>
+										<td class="gray"></td>
+									</tr>
+									<tr>
+										<td colspan="3">월 누적 환불율</td>
+										<td><input type="text" /></td>
+									</tr>
+								</table>
+								<table class="report-table mt20">
+									<colgroup>
+										<col width="25%" />
+										<col width="25%" />
+										<col width="25%" />
+										<col width="25%" />
+									</colgroup>
+									<tr>
+										<td colspan="4">초진 예약 수 입력</td>
+									</tr>
+									<tr>
+										<td>챗봇</td>
+										<td>NAVER</td>
+										<td>전화F/카톡F</td>
+										<td>비대면</td>
+									</tr>
+									<tr>
+										<td><input type="text" /></td>
+										<td><input type="text" /></td>
+										<td><input type="text" /></td>
+										<td><input type="text" /></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</form>
+					<div class="btn-center-group">
+						<a type="button" class="btn btn-report" href="../daily-report/calendar.html">목록</a>
+						<button type="submit" class="btn btn-report">저장</button>
+					</div>
+				</article>
+			</div>
+		</main>
+		<!--메인 끝-->
+	</div>
+	<script></script>
+</body>
+
+</html>

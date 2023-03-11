@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<title>NUBEBE</title>
+	<!-- jQuery CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<link rel="icon" href="/_image/common/favicon.ico" type="image/x-icon" sizes="32x32" />
+	<link rel="stylesheet" href="../../_css/reset.css" />
+	<link rel="stylesheet" href="../../_css/common.css" />
+	<link rel="stylesheet" href="../../_css/style.css" />
+	<script src="../../_js/common.js" defer></script>
+	<script src="../../_js/dashbord.js" defer></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<header class="header" id="header"></header>
+
+		<!--메인 시작-->
+		<main class="home page-main">
+			<div class="page-container">
+				<article class="page-content ptb55">
+					<div class="tab-area">
+						<ul class="tab">
+							<li class="on" data-tab="day"><a href="javascript:void(0)">일간</a></li>
+							<li data-tab="week"><a href="javascript:void(0)">주간</a></li>
+							<li data-tab="month"><a href="javascript:void(0)">월간</a></li>
+							<li data-tab="year"><a href="javascript:void(0)">연간</a></li>
+						</ul>
+						<!-- 일간 -->
+						<div id="day" class="tab-content on">
+							<div class="home-total">
+								<div class="home-total-item">
+									<h3>총 매출</h3>
+									<table class="main-table mt20">
+										<colgroup>
+											<col style="width: 40%" />
+											<col style="width: 60%" />
+										</colgroup>
+										<thead>
+											<!-- 일간 : tr에 pink 클래스 추가 -->
+											<tr class="pink">
+												<th>일간</th>
+												<td>10,000</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<td>9,000</td>
+											</tr>
+											<tr>
+												<td>
+													<!-- 상승 : span에 red 클래스 추가 -->
+													<!-- 하락 : span에 blue 클래스 추가 -->
+													<span class="red">+ 11.11%</span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="home-total-item">
+									<h3>총 초진 수</h3>
+									<table class="main-table mt20">
+										<colgroup>
+											<col style="width: 40%" />
+											<col style="width: 60%" />
+										</colgroup>
+										<thead>
+											<tr class="pink">
+												<th>일간</th>
+												<td>10</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<td>10</td>
+											</tr>
+											<tr>
+												<td>-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="home-total-item">
+									<h3>총 패키지 수</h3>
+									<table class="main-table mt20">
+										<colgroup>
+											<col style="width: 40%" />
+											<col style="width: 60%" />
+										</colgroup>
+										<thead>
+											<tr class="pink">
+												<th>일간</th>
+												<td>10</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<td>10</td>
+											</tr>
+											<tr>
+												<td>-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="home-total-reservation mt70">
+								<div class="home-total-item">
+									<h3>총 초진예약</h3>
+									<table class="main-table mt20">
+										<colgroup>
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th colspan="2">총 초진예약</th>
+												<td>대면</td>
+												<td>비대면</td>
+												<td>챗봇</td>
+												<td>네이버</td>
+												<td>전화/카톡</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<th>일간</th>
+												<th>140</th>
+												<td>100</td>
+												<td>10</td>
+												<td>10</td>
+												<td>10</td>
+												<td>10</td>
+											</tr>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<th>150</th>
+												<td>110</td>
+												<td>10</td>
+												<td>10</td>
+												<td>10</td>
+												<td>10</td>
+											</tr>
+											<tr>
+												<th>
+													<span class="blue">- 6.67%</span>
+												</th>
+												<td>
+													<span class="blue">- 9.07%</span>
+												</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- 주간 -->
+						<div id="week" class="tab-content">
+							<div class="home-total">
+								<div class="home-total-item">
+									<h3>총 매출</h3>
+									<table class="main-table mt20">
+										<colgroup>
+											<col style="width: 40%" />
+											<col style="width: 60%" />
+										</colgroup>
+										<thead>
+											<tr class="pink">
+												<th>일간</th>
+												<td>20,000</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<td>9,000</td>
+											</tr>
+											<tr>
+												<td>
+													<span class="red">+ 11.11%</span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="home-total-item">
+									<h3>총 초진 수</h3>
+									<table class="main-table mt20">
+										<colgroup>
+											<col style="width: 40%" />
+											<col style="width: 60%" />
+										</colgroup>
+										<thead>
+											<tr class="pink">
+												<th>일간</th>
+												<td>10</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<td>10</td>
+											</tr>
+											<tr>
+												<td>-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="home-total-item">
+									<h3>총 패키지 수</h3>
+									<table class="main-table mt20">
+										<colgroup>
+											<col style="width: 40%" />
+											<col style="width: 60%" />
+										</colgroup>
+										<thead>
+											<tr class="pink">
+												<th>일간</th>
+												<td>10</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<td>10</td>
+											</tr>
+											<tr>
+												<td>-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="home-total-reservation mt70">
+								<div class="home-total-item">
+									<h3>총 초진예약</h3>
+									<table class="main-table mt20">
+										<colgroup>
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th colspan="2">총 초진예약</th>
+												<td>대면</td>
+												<td>비대면</td>
+												<td>챗봇</td>
+												<td>네이버</td>
+												<td>전화/카톡</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<th>일간</th>
+												<th>140</th>
+												<td>100</td>
+												<td>10</td>
+												<td>10</td>
+												<td>10</td>
+												<td>10</td>
+											</tr>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<th>150</th>
+												<td>110</td>
+												<td>10</td>
+												<td>10</td>
+												<td>10</td>
+												<td>10</td>
+											</tr>
+											<tr>
+												<th>
+													<span class="blue">- 6.67%</span>
+												</th>
+												<td>
+													<span class="blue">- 9.07%</span>
+												</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- 월간 -->
+						<div id="month" class="tab-content">
+							<div class="home-total">
+								<div class="home-total-item">
+									<h3>총 매출</h3>
+									<table class="main-table mt20">
+										<colgroup>
+											<col style="width: 40%" />
+											<col style="width: 60%" />
+										</colgroup>
+										<thead>
+											<tr class="pink">
+												<th>일간</th>
+												<td>10,000</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<td>9,000</td>
+											</tr>
+											<tr>
+												<td>
+													<span class="red">+ 11.11%</span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="home-total-item">
+									<h3>총 초진 수</h3>
+									<table class="main-table mt20">
+										<colgroup>
+											<col style="width: 40%" />
+											<col style="width: 60%" />
+										</colgroup>
+										<thead>
+											<tr class="pink">
+												<th>일간</th>
+												<td>10</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<td>10</td>
+											</tr>
+											<tr>
+												<td>-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="home-total-item">
+									<h3>총 패키지 수</h3>
+									<table class="main-table mt20">
+										<colgroup>
+											<col style="width: 40%" />
+											<col style="width: 60%" />
+										</colgroup>
+										<thead>
+											<tr class="pink">
+												<th>일간</th>
+												<td>10</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<td>10</td>
+											</tr>
+											<tr>
+												<td>-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="home-total-reservation mt70">
+								<div class="home-total-item">
+									<h3>총 초진예약</h3>
+									<table class="main-table mt20">
+										<colgroup>
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th colspan="2">총 초진예약</th>
+												<td>대면</td>
+												<td>비대면</td>
+												<td>챗봇</td>
+												<td>네이버</td>
+												<td>전화/카톡</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<th>일간</th>
+												<th>140</th>
+												<td>100</td>
+												<td>10</td>
+												<td>10</td>
+												<td>10</td>
+												<td>10</td>
+											</tr>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<th>150</th>
+												<td>110</td>
+												<td>10</td>
+												<td>10</td>
+												<td>10</td>
+												<td>10</td>
+											</tr>
+											<tr>
+												<th>
+													<span class="blue">- 6.67%</span>
+												</th>
+												<td>
+													<span class="blue">- 9.07%</span>
+												</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- 연간 -->
+						<div id="year" class="tab-content">
+							<div class="home-total">
+								<div class="home-total-item">
+									<h3>총 매출</h3>
+									<table class="main-table mt20">
+										<colgroup>
+											<col style="width: 40%" />
+											<col style="width: 60%" />
+										</colgroup>
+										<thead>
+											<tr class="pink">
+												<th>일간</th>
+												<td>10,000</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<td>9,000</td>
+											</tr>
+											<tr>
+												<td>
+													<span class="red">+ 11.11%</span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="home-total-item">
+									<h3>총 초진 수</h3>
+									<table class="main-table mt20">
+										<colgroup>
+											<col style="width: 40%" />
+											<col style="width: 60%" />
+										</colgroup>
+										<thead>
+											<tr class="pink">
+												<th>일간</th>
+												<td>10</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<td>10</td>
+											</tr>
+											<tr>
+												<td>-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="home-total-item">
+									<h3>총 패키지 수</h3>
+									<table class="main-table mt20">
+										<colgroup>
+											<col style="width: 40%" />
+											<col style="width: 60%" />
+										</colgroup>
+										<thead>
+											<tr class="pink">
+												<th>일간</th>
+												<td>10</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<td>10</td>
+											</tr>
+											<tr>
+												<td>-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="home-total-reservation mt70">
+								<div class="home-total-item">
+									<h3>총 초진예약</h3>
+									<table class="main-table mt20">
+										<colgroup>
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+											<col style="width: calc(100% / 7)" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th colspan="2">총 초진예약</th>
+												<td>대면</td>
+												<td>비대면</td>
+												<td>챗봇</td>
+												<td>네이버</td>
+												<td>전화/카톡</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="pink">
+												<th>일간</th>
+												<th>140</th>
+												<td>100</td>
+												<td>10</td>
+												<td>10</td>
+												<td>10</td>
+												<td>10</td>
+											</tr>
+											<tr>
+												<th rowspan="2">전주대비</th>
+												<th>150</th>
+												<td>110</td>
+												<td>10</td>
+												<td>10</td>
+												<td>10</td>
+												<td>10</td>
+											</tr>
+											<tr>
+												<th>
+													<span class="blue">- 6.67%</span>
+												</th>
+												<td>
+													<span class="blue">- 9.07%</span>
+												</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+		</main>
+	</div>
+	<script></script>
+</body>
+
+</html>

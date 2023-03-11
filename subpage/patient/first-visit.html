@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<title>NUBEBE</title>
+	<!-- jQuery CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<!-- chart.js CDN -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+	<!-- daterangepicker -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+	<link rel="icon" href="/_image/common/favicon.ico" type="image/x-icon" sizes="32x32" />
+	<link rel="stylesheet" href="../../_css/reset.css" />
+	<link rel="stylesheet" href="../../_css/common.css" />
+	<link rel="stylesheet" href="../../_css/style.css" />
+	<script src="../../_js/common.js" defer></script>
+	<script src="../../_js/dashbord.js" defer></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<header class="header" id="header"></header>
+
+		<!--메인 시작-->
+		<main class="patient page-main">
+			<!-- 사이드바 시작 -->
+			<aside class="aside-nav">
+				<ul class="aside-local-nav">
+					<li>
+						<a href="../patient/first-visit.html">초진</a>
+					</li>
+					<li>
+						<a href="../patient/first-package.html">초진 패키지</a>
+					</li>
+				</ul>
+			</aside>
+			<!-- 사이드바 끝 -->
+			<div class="page-container">
+				<article class="page-content ptb55">
+					<div class="tab-area">
+						<ul class="tab">
+							<li class="on" data-tab="tab1">
+								<a href="javascript:void(0)">총 초진 수</a>
+							</li>
+							<li data-tab="tab2"><a href="javascript:void(0)">내원</a></li>
+							<li data-tab="tab3">
+								<a href="javascript:void(0)">비대면</a>
+							</li>
+							<li data-tab="tab4">
+								<a href="javascript:void(0)">기타/예약 수</a>
+							</li>
+							<li data-tab="tab5">
+								<a href="javascript:void(0)">초진예약</a>
+							</li>
+						</ul>
+						<div id="tab1" class="tab-content on">
+							<h3 class="sales-title">강남점 총 초진 수</h3>
+							<div class="sales-chart-items">
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>일간(7일)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="day-chart"></canvas>
+								</div>
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>주간(8주)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="week-chart"></canvas>
+								</div>
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>월간(6달)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="month-chart"></canvas>
+								</div>
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>연간(2년)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="year-chart"></canvas>
+								</div>
+							</div>
+							<div class="download-chart">
+								<a class="btn-download" href="javascript:void(0)">다운로드</a>
+							</div>
+							<div class="compared-list">
+								<div class="compared-item">
+									<div class="title">
+										<span>일간/전주대비(전주차/요일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>주간/전주대비(전주차/월~일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>월간/전년대비(전년/월)</span>
+										<b class="down">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 45%">45%</span>
+											</div>
+											<div class="this">
+												<span style="height: 23%">23%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>연간/전년대비(전년/년)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tab2" class="tab-content">
+							<h3 class="sales-title">강남점 내원</h3>
+							<div class="sales-chart-items">
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>일간(7일)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="day-chart2"></canvas>
+								</div>
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>주간(8주)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="week-chart2"></canvas>
+								</div>
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>월간(6달)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="month-chart2"></canvas>
+								</div>
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>연간(2년)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="year-chart2"></canvas>
+								</div>
+							</div>
+							<div class="download-chart">
+								<a class="btn-download" href="javascript:void(0)">다운로드</a>
+							</div>
+							<div class="compared-list">
+								<div class="compared-item">
+									<div class="title">
+										<span>일간/전주대비(전주차/요일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>주간/전주대비(전주차/월~일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>월간/전년대비(전년/월)</span>
+										<b class="down">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 45%">45%</span>
+											</div>
+											<div class="this">
+												<span style="height: 23%">23%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>연간/전년대비(전년/년)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tab3" class="tab-content">
+							<h3 class="sales-title">강남점 비대면</h3>
+							<div class="sales-chart-items">
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>일간(7일)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="day-chart3"></canvas>
+								</div>
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>주간(8주)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="week-chart3"></canvas>
+								</div>
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>월간(6달)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="month-chart3"></canvas>
+								</div>
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>연간(2년)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="year-chart3"></canvas>
+								</div>
+							</div>
+							<div class="download-chart">
+								<a class="btn-download" href="javascript:void(0)">다운로드</a>
+							</div>
+							<div class="compared-list">
+								<div class="compared-item">
+									<div class="title">
+										<span>일간/전주대비(전주차/요일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>주간/전주대비(전주차/월~일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>월간/전년대비(전년/월)</span>
+										<b class="down">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 45%">45%</span>
+											</div>
+											<div class="this">
+												<span style="height: 23%">23%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>연간/전년대비(전년/년)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tab4" class="tab-content">
+							<h3 class="sales-title">강남점 기타/예약 수</h3>
+							<div class="sales-chart-items">
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>일간(7일)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="day-chart4"></canvas>
+								</div>
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>주간(8주)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="week-chart4"></canvas>
+								</div>
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>월간(6달)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="month-chart4"></canvas>
+								</div>
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>연간(2년)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="year-chart4"></canvas>
+								</div>
+							</div>
+							<div class="download-chart">
+								<a class="btn-download" href="javascript:void(0)">다운로드</a>
+							</div>
+							<div class="compared-list">
+								<div class="compared-item">
+									<div class="title">
+										<span>일간/전주대비(전주차/요일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>주간/전주대비(전주차/월~일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>월간/전년대비(전년/월)</span>
+										<b class="down">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 45%">45%</span>
+											</div>
+											<div class="this">
+												<span style="height: 23%">23%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>연간/전년대비(전년/년)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tab5" class="tab-content">
+							<h3 class="sales-title">강남점 초진예약</h3>
+							<div class="sales-chart-items">
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>일간(7일)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="day-chart5"></canvas>
+								</div>
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>주간(8주)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="week-chart5"></canvas>
+								</div>
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>월간(6달)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="month-chart5"></canvas>
+								</div>
+								<div class="sales-chart-item">
+									<div class="title">
+										<strong>연간(2년)</strong>
+										<div class="range-date-box">
+											<input type="text" name="range-date" />
+										</div>
+									</div>
+									<canvas id="year-chart5"></canvas>
+								</div>
+							</div>
+							<div class="download-chart">
+								<a class="btn-download" href="javascript:void(0)">다운로드</a>
+							</div>
+							<div class="compared-list">
+								<div class="compared-item">
+									<div class="title">
+										<span>일간/전주대비(전주차/요일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>주간/전주대비(전주차/월~일)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>월간/전년대비(전년/월)</span>
+										<b class="down">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 45%">45%</span>
+											</div>
+											<div class="this">
+												<span style="height: 23%">23%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compared-item">
+									<div class="title">
+										<span>연간/전년대비(전년/년)</span>
+										<b class="up">12%</b>
+									</div>
+									<div class="compared">
+										<div class="compared-price">
+											<span class="last">지난주 : 총 328,000,000원</span>
+											<span class="this">이번주 : 총 328,000,000원</span>
+										</div>
+										<div class="compared-chart">
+											<div class="last">
+												<span style="height: 23%">23%</span>
+											</div>
+											<div class="this">
+												<span style="height: 45%">45%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+		</main>
+	</div>
+
+	<script>
+		// 일간(7일)
+		let day = document.getElementById("day-chart").getContext("2d");
+		// 주간
+		let week = document.getElementById("week-chart").getContext("2d");
+		// 월간
+		let month = document.getElementById("month-chart").getContext("2d");
+		//연간
+		let year = document.getElementById("year-chart").getContext("2d");
+
+		let commonOption = {
+			legend: {
+				display: false,
+			},
+			tooltips: {
+				mode: "index",
+				intersect: false,
+			},
+			hover: {
+				mode: "nearest",
+				intersect: true,
+			},
+			scales: {
+				yAxes: [
+					{
+						ticks: {
+							min: 0,
+							max: 100,
+							stepSize: 50,
+						},
+					},
+				],
+			},
+		};
+
+		let commonLabels = [
+			"1월",
+			"2월",
+			"3월",
+			"4월",
+			"5월",
+			"6월",
+			"7월",
+			"8월",
+			"9월",
+			"10월",
+			"11월",
+			"12월",
+		];
+
+		new Chart(day, {
+			type: "line",
+			data: {
+				labels: commonLabels,
+				datasets: [
+					{
+						label: "",
+						data: [80, 40, 60, 40, 55, 80, 50, 90, 80, 55, 57, 40],
+						borderColor: "#C2334E",
+						backgroundColor: "#C2334E",
+						fill: false,
+						lineTension: 0,
+					},
+				],
+			},
+			options: commonOption,
+		});
+
+		new Chart(week, {
+			type: "line",
+			data: {
+				labels: commonLabels,
+				datasets: [
+					{
+						label: "",
+						data: [80, 40, 70, 35, 65, 80, 50, 90, 52, 60, 62, 70],
+						borderColor: "#C2334E",
+						backgroundColor: "#C2334E",
+						fill: false,
+						lineTension: 0,
+					},
+				],
+			},
+			options: commonOption,
+		});
+
+		new Chart(month, {
+			type: "line",
+			data: {
+				labels: commonLabels,
+				datasets: [
+					{
+						label: "",
+						data: [80, 40, 60, 35, 55, 80, 50, 95, 80, 55, 58, 60],
+						borderColor: "#C2334E",
+						backgroundColor: "#C2334E",
+						fill: false,
+						lineTension: 0,
+					},
+				],
+			},
+			options: commonOption,
+		});
+
+		new Chart(year, {
+			type: "line",
+			data: {
+				labels: commonLabels,
+				datasets: [
+					{
+						label: "",
+						data: [80, 40, 65, 35, 60, 80, 50, 95, 85, 55, 60, 40],
+						borderColor: "#C2334E",
+						backgroundColor: "#C2334E",
+						fill: false,
+						lineTension: 0,
+					},
+				],
+			},
+			options: commonOption,
+		});
+	</script>
+</body>
+
+</html>

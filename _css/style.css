@@ -1,0 +1,101 @@
+@charset "UTF-8";
+@import url("font.css");
+
+/* Home */
+.home-total {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 32px;
+}
+
+.home-total-item {
+	flex: 1;
+}
+.home-total-item h3 {
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+/* 정보수정 */
+.modify-info .modify-wrap input {
+	border: 1px solid var(--color-pink);
+	font-size: 1.4rem;
+	background-color: var(--color-white);
+}
+
+.modify ul.form-list > li.correct input {
+	border: 1px solid var(--color-blue);
+}
+
+.modify ul.form-list > li.wrong input {
+	border: 1px solid var(--color-red2);
+}
+
+.modify ul.form-list > li.wrong input {
+	background: var(--color-white) url(../_image/common/icon_exclamation.svg)
+		no-repeat center right 9px;
+}
+
+.modify-info .modify-wrap .input-box .correct input {
+	border: 1px solid var(--color-blue);
+}
+.modify-info .modify-wrap .input-box .wrong input {
+	border: 1px solid var(--color-red2);
+}
+
+.modify-info .modify-wrap .input-box label {
+	color: var(--color-gray3);
+}
+
+.guide-text {
+	color: var(--color-black);
+	margin-top: 6px;
+	font-size: 1.3rem;
+	font-family: "Noto Sans KR";
+	font-size: 1.2rem;
+	line-height: 16px;
+	word-break: keep-all;
+}
+
+.modify ul.form-list > li.wrong .guide-text {
+	color: var(--color-red2);
+}
+
+.modify .modify-wrap .input-box > div {
+	position: relative;
+}
+
+.modify .modify-wrap .input-box > div .guide-tooltip {
+	position: absolute;
+	left: 98%;
+	top: -10px;
+	font-family: "Noto Sans KR";
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+	background-color: var(--color-white);
+	display: inline-block;
+	color: var(--color-blue);
+	padding: 6px 12px;
+	border-radius: 3px;
+	font-size: 1.3rem;
+	width: max-content;
+	display: none;
+}
+
+.modify .modify-wrap .input-box > div .guide-tooltip.correct {
+	color: var(--color-blue);
+}
+
+.modify .modify-wrap .input-box > div .guide-tooltip.wrong {
+	color: var(--color-red2);
+}
+
+.modify ul.form-list > li.correct .guide-tooltip.correct,
+.modify ul.form-list > li.wrong .guide-tooltip.wrong {
+	display: block;
+}
+
+.modify ul.form-list > li.correct .guide-tooltip.wrong,
+.modify ul.form-list > li.wrong .guide-tooltip.correct {
+	display: none;
+}

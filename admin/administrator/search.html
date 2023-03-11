@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<title>NUBEBE</title>
+	<!-- jQuery CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<link rel="icon" href="/_image/common/favicon.ico" type="image/x-icon" sizes="32x32" />
+	<link rel="stylesheet" href="/../../_css/reset.css" />
+	<link rel="stylesheet" href="/../../_css/common.css" />
+	<link rel="stylesheet" href="/../../_css/admin.css" />
+	<script src="../../_js/common.js" defer></script>
+	<script src="../../_js/admin.js" defer></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<!--헤더시작-->
+		<header class="header" id="header"></header>
+		<!-- 헤더 끝 -->
+
+		<!--메인 시작-->
+		<main class="administrator page-main">
+			<!-- 사이드바 시작 -->
+			<aside class="aside-nav">
+				<ul class="aside-local-nav">
+					<li>
+						<a href="/admin/administrator/search.html" class="active">관리자 조회</a>
+					</li>
+					<li>
+						<a href="/admin/administrator/inquiry.html">관리자 이력</a>
+					</li>
+				</ul>
+			</aside>
+			<!-- 사이드바 끝 -->
+
+			<div class="page-container">
+				<article class="search page-content ptb192">
+					<div class="search-wrap">
+						<div class="title-box">
+							<h3 class="search-title">관리자 조회</h3>
+							<a class="btn btn-normal-pink" href="/admin/administrator/add.html">
+								관리자 등록 +
+							</a>
+						</div>
+						<div class="search-content">
+							<form name="searchForm" action="" method="post" onsubmit="">
+								<div class="search-area">
+									<ul>
+										<li class="search-list-item">
+											<strong>아이디</strong>
+											<div class="input-box">
+												<input type="text" name="id" id="id" class="w230" />
+											</div>
+										</li>
+										<li class="search-list-item">
+											<strong>가입일</strong>
+											<div class="date-box">
+												<input type="date" data-placeholder="연-월-일" required />
+												<span class="date-text"> ~</span><input type="date" data-placeholder="연-월-일"
+													required />
+											</div>
+										</li>
+										<li class="search-list-item">
+											<strong>비고란 내용</strong>
+											<div class="input-box">
+												<input type="text" name="search" id="search" />
+											</div>
+										</li>
+									</ul>
+									<button class="btn btn-normal-pink">검색</button>
+								</div>
+							</form>
+							<div class="search-result-area">
+								<h4 class="search-title-sub">관리자 목록</h4>
+								<!-- 탭메뉴 -->
+								<ul class="result-tap-menu">
+									<li data-tab="tab1" class="active">
+										관리자 목록
+									</li>
+									<li data-tab="tab2">탈퇴 관리자</li>
+								</ul>
+								<div class="result-list active" id="tab1">
+									<table>
+										<colgroup>
+											<col style="width: 8%" />
+											<col style="width: 10%" />
+											<col style="width: 10%" />
+											<col style="width: 10%" />
+											<col style="width: 52%" />
+											<col style="width: 10%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>
+													<label class="check-box">
+														<input type="checkbox" id="chk-all" />
+													</label>
+												</th>
+												<th>순번</th>
+												<th>아이디</th>
+												<th>가입일</th>
+												<th>비고</th>
+												<th>정보수정</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													<label class="check-box">
+														<input type="checkbox" name="chk" />
+													</label>
+												</td>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>
+													<span class="ellipsis-line-1">
+														비고입니다. 비고입니다.
+														비고입니다비고입니다비고입니다.비고입니다
+														비고입니다. 비고입니다.
+													</span>
+												</td>
+												<td>
+													<a class="btn-modify" href="/admin/administrator/modify.html">정보수정</a>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<label class="check-box">
+														<input type="checkbox" name="chk" />
+													</label>
+												</td>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>비고입니다..............</td>
+												<td>
+													<a class="btn-modify" href="/admin/administrator/modify.html">정보수정</a>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<label class="check-box">
+														<input type="checkbox" name="chk" />
+													</label>
+												</td>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>비고입니다..............</td>
+												<td>
+													<a class="btn-modify" href="/admin/administrator/modify.html">정보수정</a>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<label class="check-box">
+														<input type="checkbox" name="chk" />
+													</label>
+												</td>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>비고입니다..............</td>
+												<td>
+													<a class="btn-modify" href="/admin/administrator/modify.html">정보수정</a>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<label class="check-box">
+														<input type="checkbox" name="chk" />
+													</label>
+												</td>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>비고입니다..............</td>
+												<td>
+													<a class="btn-modify" href="/admin/administrator/modify.html">정보수정</a>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<label class="check-box">
+														<input type="checkbox" name="chk" />
+													</label>
+												</td>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>비고입니다..............</td>
+												<td>
+													<a class="btn-modify" href="/admin/administrator/modify.html">정보수정</a>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<label class="check-box">
+														<input type="checkbox" name="chk" />
+													</label>
+												</td>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>비고입니다..............</td>
+												<td>
+													<a class="btn-modify" href="/admin/administrator/modify.html">정보수정</a>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<label class="check-box">
+														<input type="checkbox" name="chk" />
+													</label>
+												</td>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>비고입니다..............</td>
+												<td>
+													<a class="btn-modify" href="/admin/administrator/modify.html">정보수정</a>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<label class="check-box">
+														<input type="checkbox" name="chk" />
+													</label>
+												</td>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>비고입니다..............</td>
+												<td>
+													<a class="btn-modify" href="/admin/administrator/modify.html">정보수정</a>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<label class="check-box">
+														<input type="checkbox" name="chk" />
+													</label>
+												</td>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>비고입니다..............</td>
+												<td>
+													<a class="btn-modify" href="/admin/administrator/modify.html">정보수정</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="pagination">
+										<a href="javascript:void(0)" class="page_arrow_prev"><img
+												src="/../../image/common/page_arrow_prev.svg" alt="" /></a>
+										<a href="javascript:void(0)" class="num">1</a>
+										<a class="num active" href="javascript:void(0)">2</a>
+										<a href="javascript:void(0)" class="num">3</a>
+										<a href="javascript:void(0)" class="num">4</a>
+										<a href="javascript:void(0)" class="num">5</a>
+										<a href="javascript:void(0)" class="num">6</a>
+										<a href="javascript:void(0)" class="page_arrow_next"><img
+												src="/../../image/common/page_arrow_next.svg" alt="" /></a>
+									</div>
+									<button class="btn btn-normal-gray">삭제</button>
+								</div>
+								<div class="result-list" id="tab2">
+									<table>
+										<colgroup>
+											<col style="width: 12%" />
+											<col style="width: 12%" />
+											<col style="width: 12%" />
+											<col style="width: 12%" />
+											<col style="width: auto" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>순번</th>
+												<th>아이디</th>
+												<th>가입일</th>
+												<th>탈퇴일</th>
+												<th>비고</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>2023.09.23.</td>
+												<td>
+													<span class="ellipsis-line-1">
+														비고입니다. 비고입니다.
+														비고입니다비고입니다비고입니다.비고입니다
+														비고입니다. 비고입니다.
+													</span>
+												</td>
+											</tr>
+											<tr>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>2023.09.23.</td>
+												<td>
+													<span class="ellipsis-line-1">
+														비고입니다.
+													</span>
+												</td>
+											</tr>
+											<tr>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>2023.09.23.</td>
+												<td>
+													<span class="ellipsis-line-1">
+														비고입니다.
+													</span>
+												</td>
+											</tr>
+											<tr>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>2023.09.23.</td>
+												<td>
+													<span class="ellipsis-line-1">
+														비고입니다.
+													</span>
+												</td>
+											</tr>
+											<tr>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>2023.09.23.</td>
+												<td>
+													<span class="ellipsis-line-1">
+														비고입니다.
+													</span>
+												</td>
+											</tr>
+											<tr>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>2023.09.23.</td>
+												<td>
+													<span class="ellipsis-line-1">
+														비고입니다.
+													</span>
+												</td>
+											</tr>
+											<tr>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>2023.09.23.</td>
+												<td>
+													<span class="ellipsis-line-1">
+														비고입니다.
+													</span>
+												</td>
+											</tr>
+											<tr>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>2023.09.23.</td>
+												<td>
+													<span class="ellipsis-line-1">
+														비고입니다.
+													</span>
+												</td>
+											</tr>
+											<tr>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>2023.09.23.</td>
+												<td>
+													<span class="ellipsis-line-1">
+														비고입니다.
+													</span>
+												</td>
+											</tr>
+											<tr>
+												<td>00010</td>
+												<td>a1</td>
+												<td>2023.09.23.</td>
+												<td>2023.09.23.</td>
+												<td>
+													<span class="ellipsis-line-1">
+														비고입니다.
+													</span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="pagination">
+										<a href="javascript:void(0)" class="page_arrow_prev"><img
+												src="/../../image/common/page_arrow_prev.svg" alt="" /></a>
+										<a href="javascript:void(0)" class="num">1</a>
+										<a class="num active" href="javascript:void(0)">2</a>
+										<a href="javascript:void(0)" class="num">3</a>
+										<a href="javascript:void(0)" class="num">4</a>
+										<a href="javascript:void(0)" class="num">5</a>
+										<a href="javascript:void(0)" class="num">6</a>
+										<a href="javascript:void(0)" class="page_arrow_next"><img
+												src="/../../image/common/page_arrow_next.svg" alt="" /></a>
+									</div>
+									<button class="btn btn-normal-gray">삭제</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+		</main>
+		<!--메인 끝 -->
+	</div>
+
+	<script>
+		$(function () {
+			$("#chk-all").click(function () {
+				if ($("#chk-all").prop("checked")) {
+					$("input[name=chk]").prop("checked", true);
+				} else {
+					$("input[name=chk]").prop("checked", false);
+				}
+			});
+
+			$("input[name=chk]").click(function () {
+				let total = $("input[name=chk]").length;
+				let checked = $("input[name=chk]:checked").length;
+
+				if (total != checked) $("#chk-all").prop("checked", false);
+				else $("#chk-all").prop("checked", true);
+			});
+		});
+	</script>
+</body>
+
+</html>
